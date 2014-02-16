@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN" "http://www.wapforum.org/DTD/wml_1.1.xml">
+
+
+
+
+
+
+<wml>
+
+<head>
+	<meta forua="true" http-equiv="Cache-Control" content="no-cache" />
+	<meta forua="true" http-equiv="Cache-Control" content="max-age=0" />
+	<meta forua="true" http-equiv="Cache-Control" content="must-revalidate" />
+</head>
+
+<card id="start" title="登录WAP飞信" ontimer="/im/login/login.action"  newcontext="true">
+<timer value="30"/>
+<p>  
+     对不起,密码输入错误,请重新输入!<br/>
+     3秒钟自动返回输入登录页面…<br/><br/>
+     <a href="/im/login/login.action">返回登录WAP飞信</a>
+	
+
+
+
+<br/>
+
+
+
+<a href="http://f.10086.cn/space/myspace/layout.action">空间</a>-<a href="http://f.10086.cn/jy/home/index.action">家园</a>-<a href="/im/index/index.action?t=37319211895396901">WAP飞信</a><br/>
+<a href="http://f.10086.cn/index.jsp">手机飞信网</a>-<a href="http://f.10086.cn/info/c/?nid=29">导航</a>-<a href="http://f.10086.cn/portal/cscenter.action?do=layout">客服</a>
+<br/>
+
+
+[11月08日 19:16]
+
+
+</p>
+</card>
+</wml>

@@ -1,0 +1,5 @@
+cron:
+- description: clean daily
+  url: /clean
+  schedule: every day 00:00
+  timezone: Asia/Shanghai

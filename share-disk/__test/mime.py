@@ -1,0 +1,1 @@
+import os, mimetypesdict = {}def foo(args, d, f):    global dict    for i in f:        print mimetypes.guess_type(i)os.path.walk("f:\\", foo, None)

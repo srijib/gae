@@ -1,0 +1,16 @@
+application: share-disk
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /response
+  script: response.py
+- url: /datastore
+  script: datastore.py
+- url: /upload
+  script: upload.py
+- url: /download
+  script: download.py
+- url: .*
+  script: main.py

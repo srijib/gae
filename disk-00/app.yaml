@@ -1,0 +1,16 @@
+application: disk-00
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /upload
+  script: controller.py
+- url: /download
+  script: controller.py
+- url: /pdfpreview
+  script: preview.py
+- url: /
+  script: controller.py
+- url: .*
+  script: controller.py

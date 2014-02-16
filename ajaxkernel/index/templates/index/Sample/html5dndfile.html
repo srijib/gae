@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>HTML5 DND</title>
+        <style type="text/css">
+            div {
+                display: block;
+            }
+            
+            .box {
+                float: left;
+                margin-top: 20px;
+				margin-right: 100px;
+                height: 400px;
+                width: 500px;
+                border: 2px solid;
+				overflow: auto;
+            }
+            
+            .over {
+                background: #e6e6fa;
+            }
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.5/dojo/dojo.xd.js">
+        </script>
+        <script type="text/javascript">
+            dojo.addOnLoad(function(){
+                var textdiv = dojo.byId("text");
+                var pic = dojo.byId("pic");
+                var box = dojo.query(".box");
+                
+                box.connect('dragover', function(e){
+                    if (e.preventDefault) 
+                        e.preventDefault();
+                    dojo.addClass(this, "over");
+                    return false;
+                })
+                
+                box.connect('dragenter', function(e){
+                    return false;
+                });
+                
+                box.connect('dragleave', function(){
+                    dojo.removeClass(this, "over");
+                });
+                
+                dojo.connect(textdiv, 'drop', function(e){
+                    if (e.stopPropagation) 
+                        e.stopPropagation(); // stops the browser from redirecting
+                    var files = e.dataTransfer.files;
+                    var msg = "";
+                    for (var i = 0; i < files.length; i++) {
+                    
+                        msg += ("Name: " + files[i].fileName + ", fileSize: " + files[i].fileSize);
+                        var dataReader = new FileReader();
+                        dataReader.onload = function(){
+                            msg += ("content: " + dataReader.result);
+                            textdiv.textContent = msg;
+                        }
+                        dataReader.readAsText(files[i]);
+                    }
+                });
+                
+                dojo.connect(pic, 'drop', function(e){
+                    if (e.stopPropagation) 
+                        e.stopPropagation();
+                    var files = e.dataTransfer.files;
+                    for (var i = 0; i < files.length; i++) {
+                    
+                        var dataReader = new FileReader();
+                        var file = files[i];
+                        var img = dojo.create("img");
+                        pic.appendChild(img);
+                        dataReader.onload = (function(aimg){
+                            return function(e){
+                                var dataurl = e.target.result;
+                                console.log(dataurl);
+                                aimg.src = dataurl;
+                            }
+                        })(img);
+                        dataReader.readAsDataURL(files[i]);
+                    }
+                });
+            })
+        </script>
+    </head>
+    <body>
+        <h1>HTML5 DND File Demo</h1>
+        <div id="text" class="box">
+            drop a text file here from desktop!
+        </div>
+        <div id="pic" class="box">
+            drop a picture here from desktop!<br> you can drag multiple pictures at a time.
+        </div>
+    </body>
+</html>

@@ -1,0 +1,106 @@
+﻿<html>
+<head>
+    <title>嗨!收音机</title>
+    <link rel="stylesheet" type="text/css" href="/static/main.css" />
+    <script src="/static/jquery.js"></script>
+    <script type="text/javascript" language="javascript" src="/static/niftyplayer.js"></script>
+</head>
+<body>
+
+<div id='main' >
+<table>
+<tr><td>
+<img id='picture' style='visibility:hidden' onload="$('#picture').attr('style','');$('#main').attr('style','');"></img><br/>
+</td>
+<td>
+<a id='title'></a><br/>
+<a id='artist'></a><br/>
+<a id='albumtitle'></a><br/>
+<form action="/down" method="post" name="down" target="_blank">   
+<input type="hidden" name="url" id='url'>
+</form><br/>
+<a href=# onclick="document.down.submit()">下载歌曲</a>
+</td>
+</table>
+<div id='playerdiv'>
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width=165 height=37 id=Player><param id=player_param name=movie value=niftyplayer.swf><param name=quality value=high><param name=bgcolor value=#FFFFFF><embed id=player_embed src=niftyplayer.swf quality=high bgcolor=#FFFFFF width=165 height=37 name=Player type="application/x-shockwave-flash" swLiveConnect=true pluginspage="http://www.macromedia.com/go/getflashplayer"></embed><script>alert("after div");</script></object>
+</div>
+</div>
+
+<script type="text/javascript">
+  $(window).load(function() {
+    alert("load event!");
+    SetOnstop();
+  });
+var songs = {}
+var i = 0;
+function SetOnstop(){
+  alert("SetOnstop called");
+  niftyplayer('Player').obj.SetVariable('onSongOver', 'nextsong();');
+}
+function nextsong(){
+  //alert("nextsong!!");
+  //i++;
+  alert('now: '+songs.length);
+  setplayer(songs.pop());
+  $(window).load(function() {
+    alert("load event!");
+    SetOnstop();
+  });
+
+}
+function setplayer(song){
+  $('#title').empty();
+  $('#artist').empty();
+  $('#albumtitle').empty();
+  //$('#player_div').empty();
+  //$('#playerdiv').append("");
+  $('#player_param').attr('value',"niftyplayer.swf?file="+song['url']+"&as=1");
+  $('#player_embed').attr('src',"niftyplayer.swf?file="+song['url']+"&as=1");
+
+  $('#url').attr('value',song['url']);
+
+  $('#picture').attr('src',song['picture']);
+  $('#picture').attr('alt',song['albumtitle']+" - "+song['artist']);
+
+  $('#title').append("歌曲: "+song['title']);
+  $('#artist').append("歌手: "+song['artist']);
+  $('#albumtitle').append("专辑: "+song['albumtitle']);
+  //niftyplayer('Player').loadAndPlay(song['url']);
+  //alert("loadAndPlay finished");
+  //niftyplayer('Player').registerEvent('onSongOver', 'nextsong();')
+  //niftyplayer('Player').obj.TCallLabel('/','load');
+  alert("wait");
+  niftyplayer('Player').obj.SetVariable('onSongOver', 'nextsong();');
+  niftyplayer('Player').obj.TCallLabel('/','stop');
+  niftyplayer('Player').obj.TCallLabel('/','play');
+}
+$.getJSON("/fetch",
+        function(data){
+          songs = data.song;
+          setplayer(songs[0]);
+          alert('player seted!');
+        });
+$ (function(){ 
+  
+});
+
+</script>
+<a href="javascript:alert(document['Player'].GetVariable('playingState'))">playing state</a><br />
+<a href="javascript:alert(i)">show</a>
+</body>
+</html>
+<!--
+    <a href="javascript:niftyplayer('Player').playToggle()">toggle</a>
+    <a href="javascript:niftyplayer('Player').play()">play</a>
+    <a href="javascript:niftyplayer('Player').pause()">pause</a>
+    <a href="javascript:niftyplayer('Player').stop()">stop</a>
+    <br />
+    <a href="javascript:niftyplayer('Player').loadAndPlay('1.mp3')">load and play it</a>
+    <br />
+    <a href="javascript:niftyplayer('Player').registerEvent('onPlay', 'alert(\'Playing!\')')">register onPlay event</a> (then click the play button to see the result)
+    <br />
+    <a href="javascript:niftyplayer('Player').registerEvent('onSongOver', 'alert(\'SongOver!\')')">register SongOver event</a> (then click the play button to see the result)
+    <br />
+    <a href="javascript:alert(niftyplayer('Player').getState())">get current file state</a>
+-->

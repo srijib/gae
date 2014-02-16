@@ -1,0 +1,46 @@
+application: activeusb
+version: 1
+runtime: python
+api_version: 1
+
+#builtins:
+#- admin_redirect: on
+#- datastore_admin: on
+#- appstats: on
+
+handlers:
+#- url: /CodeMirror
+#  static_dir: CodeMirror
+- url: /CodeMirror-1.0
+  static_dir: CodeMirror-1.0
+- url: /python
+  static_dir: python
+- url: /list
+  script: list.py
+- url: /edit.*
+  script: edit.py
+- url: /post
+  script: post.py
+- url: /run
+  script: run.py
+
+- url: /admin/.*
+  script: $PYTHON_LIB/google/appengine/ext/admin
+- url: /static
+  static_dir: static
+  expiration: 1d
+- url: /remote_api
+  script: $PYTHON_LIB/google/appengine/ext/remote_api/handler.py
+#  login: admin
+
+- url: /project_handler.*
+  script: project_handler.py
+- url: /ziplib
+  script: ziplib.py
+- url: /naked
+  script: naked.py
+- url: /.*
+  script: shell.py
+
+#- url: .*
+#  script: main.py

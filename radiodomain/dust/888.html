@@ -1,0 +1,14 @@
+<head><script src="jquery.js"></script></head>
+<body>
+<script event="EndOfStream(lResult)" for="player" language="javascript">   
+  alert("播放完了"+lResult)
+</script>
+<object id='player'
+classid="clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95">
+<param name="FileName" value="http:\/\/mr1.douban.com\/201003202102\/4aa35cda144e0c85cb35d8cbe61c36cb\/view\/song\/small\/p538284.mp3" />
+</object> 
+<a href="#" onclick="javascript:alert(document.player.PlayState)">播放状态</a>
+<a href=# onclick="player.Pause()">pause</a>
+<input type=button value=play onclick="player.Pause()"> 
+<input type=button value=alert onclick="alert(player.CurrentPosition)"> 
+</body>

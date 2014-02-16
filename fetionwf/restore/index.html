@@ -1,0 +1,77 @@
+﻿<html>
+<head>
+<meta name="google-site-verification" content="M02NO8cMYuXaJUaz6t9tHVWhR8JwCDs--9Sxn6BXvJ8" />
+<title>飞信天气预报</title>
+<link type="text/css" rel="stylesheet" href="/static/main.css" /> 
+</head>
+<body>
+
+<table width="100%" height="100%" align="center">
+<tr><td>
+<div align="center" valign="middle">
+<h1>飞信天气预报</h1>
+<script>
+function getredirect(v) {
+  if (v=='') v = 123;
+  //document.frames['preview'].location.href = 'http://weather.qq.com/inc/07_dc'+v+'.htm';
+  //document.getElementById("preview").src = 'http://weather.qq.com/inc/07_dc'+v+'.htm';
+  //document.getElementById("preview").location.href = 'http://weather.qq.com/inc/07_dc'+v+'.htm';
+  //document.all.preview.document.location.href = 'http://weather.qq.com/inc/07_dc'+v+'.htm';
+  //self.frames['qq'].location.href = 'http://weather.news.qq.com/inc/07_dc' + v + '.htm';
+  self.frames['preview'].location.href = '/do?city='+v;
+}
+</script>
+<table border="1" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC">
+<tr><td>
+<table border="0" height="190" border="0" cellpadding="0" cellspacing="0" >
+<tr>
+<td align="right" valign="middle">选择城市:</td>
+<td>
+<form name="input" action="do" method="get">
+<select id="obSelect" name="city" onchange="getredirect(this.value)" style="width:122px;height:18px">
+<option value="1">香港</option><option value="2">澳门</option>
+<option value="280">台北</option>
+<option value="125">北京</option><option value="252">上海</option>
+<option selected value="127">天津</option><option value="212">重庆</option>
+<option value="115">沈阳</option><option value="103">长春</option>
+<option value="17">哈尔滨</option><option value="244">南京</option>
+<option value="211">武汉</option><option value="292">广州</option>
+<option value="140">济南</option><option value="255">杭州</option>
+<option value="166">成都</option><option value="296">深圳</option>
+<option value="287">厦门</option><option value="28">乌鲁木齐</option>
+<option value="56">西宁</option><option value="57">兰州</option>
+<option value="69">呼和浩特</option><option value="78">银川</option>
+<option value="82">石家庄</option><option value="84">太原</option>
+<option value="150">拉萨</option><option value="179">昆明</option>
+<option value="186">西安</option><option value="189">郑州</option>
+<option value="218">长沙</option><option value="227">贵阳</option>
+<option value="232">桂林</option><option value="248">合肥</option>
+<option value="264">南昌</option><option value="276">福州</option>
+<option value="295">南宁</option><option value="303">海口</option> 
+</select>
+</td>
+<td rowspan = 4 valign="middle" align="center" ><input style="width:50px;height:72px;" type="submit" value="发送!"></td>
+</tr>
+<tr><td align="right" valign="middle">发送手机:</td><td><input onkeyup="value=this.value.replace(/\D+/g,'')" type="text" name="from" style="width:122px;height:18px;ime-mode:Disabled" maxlength="11" /></td></tr>
+<tr><td align="right" valign="middle">飞信密码:</td><td><input type="password" name="password" style="width:122px;height:18px" maxlength="30" /><td></tr>
+<tr><td align="right" valign="middle">接收手机:</td><td><input onKeypress="return (/[\d.]/.test(String.fromCharCode(event.keyCode)))" type="text" name="to" style="width:122px;height:18px;ime-mode:Disabled" maxlength="11" /></td></tr>
+<tr><td align="right" valign="middle">发送内容:</td>
+<td colspan=2 align="left" valign="middle">
+<iframe name='preview' id='preview' width='200' height='90' align='center' marginwidth='0' marginheight='0' hspace='0' vspace='0' frameborder='0' scrolling='no' src='/do'></iframe>
+</td></tr>
+<tr>
+<td colspan = "3" valign="middle" align="center" ><a href="/static/help.html">帮助&关于</a> <a href="/static/changelog.html">更新日志</a> <a href="/message">留言板</a> <a href="/static/reg.html">每日定时发送~New!</a>
+</td>
+</tr>
+<tr><td colspan = "2" align="center" valign="middle">飞信天气预报v0.1.8 by eggfly </td> <td align="left" valign="middle"><iframe name='pageview' id='pageview' width='80' height='15' align='center' marginwidth='0' marginheight='0' hspace='0' vspace='0' frameborder='0' scrolling='no' src='/statistic'></iframe></td></tr>
+
+
+</form>
+</table>
+</td></tr>
+</table>
+</div>
+</td></tr>
+</table>
+</body>
+</html>

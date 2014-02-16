@@ -1,0 +1,152 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="/CodeMirror-1.0/codemirror.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+    <title>Python</title>
+    <style type="text/css">
+      .CodeMirror-line-numbers {
+        width: 2.2em;
+        color: #aaa;
+        background-color: #eee;
+        text-align: right;
+        padding: .4em;
+        margin: 0;
+        font-family: monospace;
+        font-size: 10pt;
+        line-height: 1.1em;
+      }
+      #output {
+        border: 1px solid silver;
+        background-color: #f5f5f5;
+        overflow: auto;
+      }
+      #code, #output {
+        font-family: monospace;
+        font-size: 10pt;
+        height: 22em;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      .title {
+        letter-spacing: -3px;
+        font-size: 3.23em;
+        font-weight: bold;
+        font-family: Droid Sans, Arial, sans-serif;
+        line-height: 1.5;
+      }
+      .small {
+        font-size: 12px;
+        color: #0000FF;
+      }
+    </style>
+</head>
+<body style="padding: 20px;">
+<span class="title">PyIDE</span> <span class="small"><a onclick="$('#text').toggle('normal');">Toggle below</a></span>
+<div id="text">
+<p>
+    Features of this IDE include:
+</p>
+<ul>
+    <li>Token-based syntax highlighting - currently very little lexical analysis happens.  Few lexical errors will be detected.</li>
+    <li>Use the normal indentation mode to enforce regular indentation, otherwise the "shift" indentation mode will give you more flexibility.</li>
+    <li>Save your code or run your code without saving it.</li>
+</ul>
+<p>
+    Some Warnings:
+</p>
+<ul>
+    <li>Do NOT define the function with the name "main()" because this will replace the runtime environment and your code will be interrupted at the second time. The reason is that the function called "main()" already exists in runtime cache.</li>
+    <li>You must NOT includes coding declare like this: "# -*- coding: utf-8(or etc) -*-" because it's already decoded to unicode, and this page is in utf-8.</li>
+</ul>
+</div>
+<form action="" id="actionform" method="post" target="output">
+<div style="border: 1px solid black; padding: 0px;">
+<textarea name="code" id="code" cols="100" rows="20" style="width:100%">{% if code %}{{ code }}{% else %}#!/usr/bin/env python
+#
+# Copyright Yourname@domain.com
+#
+# Licensed under the Apache License, Version 2.0
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+
+# Some Example code
+import math
+
+# main function
+def mymain():
+    print "pi =", math.pi
+
+# "if __name__" test is a best in a module
+if __name__ == "__main__":  mymain()
+{% endif %}</textarea>
+<span>Filename: </span><input type="text" name="name" value="{% if name %}{{ name }}{% else %}new.py{% endif %}" />
+
+<script type="text/javascript">
+  var form = $('#actionform');
+  function doPost(){
+    form.attr("action","/post");
+    form.submit();
+  }
+  function doRun(){
+    form.attr("action","/run");
+    form.submit();
+  }
+  function doEmpty(){
+    var iframe = document.getElementById('output');
+    var idoc = null;
+    if (iframe.contentDocument) {
+      // DOM
+      idoc = iframe.contentDocument;
+    } else if (iframe.contentWindow) {
+      // IE
+      idoc = iframe.contentWindow.document;
+    }
+    if (idoc) {
+      idoc.open();
+      idoc.close();
+    }
+  }
+</script>
+<input type="button" value="Save" onclick="doPost()" />
+<input type="button" value="Run Program" onclick="doRun()" />
+<input type="button" value="Clear Result" onclick="doEmpty()" />
+</div>
+</form>
+<div>
+  <iframe name="output" id="output"></iframe>
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    var iframe = document.getElementById('output');
+    var idoc = null;
+    if (iframe.contentDocument) {
+      // DOM
+      idoc = iframe.contentDocument;
+    } else if (iframe.contentWindow) {
+      // IE
+      idoc = iframe.contentWindow.document;
+    }
+    if (idoc) {
+      idoc.open();
+      idoc.write('<html><body style="background-color:#f5f5f5;margin:0;padding:0"><pre style="margin:0;padding:0;color:#888">Press "Run Program" to see <br>the output of your code here!</pre></body></html>');
+      idoc.close();
+    }
+    document.getElementById('code').focus();
+    //]]>
+</script>
+<script type="text/javascript">
+    var editor = CodeMirror.fromTextArea('code', {
+        parserfile: ["contrib/python/js/parsepython.js"],
+        stylesheet: "/CodeMirror-1.0/contrib/python/css/pythoncolors.css",
+        path: "/CodeMirror-1.0/",
+        lineNumbers: true,
+        textWrapping: false,
+        indentUnit: 4,
+        parserConfig: {'pythonVersion': 2, 'strictErrors': true}
+    });
+</script>
+</body>
+</html>

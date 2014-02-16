@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>dojo dnd</title>
+	        <style type="text/css">
+	        	@import url("http://ajax.googleapis.com/ajax/libs/dojo/1.5/dojo/resources/dojo.css");
+				@import url("http://ajax.googleapis.com/ajax/libs/dojo/1.5/dojo/resources/dnd.css");
+            div {
+                display: block;
+            }
+            
+            #items {
+                float: left;
+                width: 200px;
+            }
+            
+            .item {
+                text-align: center;
+                margin: 15px;
+                padding: 5px 20px;
+                width: 60px;
+                border: 2px dashed;
+            }
+            
+            #box {
+                float: left;
+                margin: 15px;
+                height: 500px;
+                width: 400px;
+				border: 2px solid;
+            }
+
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.5/dojo/dojo.xd.js" djConfig="parseOnLoad:true"></script>
+        <script type="text/javascript">
+        	dojo.require("dojo.dnd.Source");
+        </script>
+    </head>
+    <body>
+        <h1>Dojo DND Demo</h1>
+        <table style="width:100%;">
+        	<tbody>
+        		<tr>
+        			<td align="center"><h2>Source</h2>
+        			</td>
+        			<td align="center"><h2>Target</h2>
+        		 </td>
+        		</tr>
+        		<tr>
+        			<td style="width:50%; border:2px dashed;">
+        				<div id="source" style="height:400px;" dojoType="dojo.dnd.Source">
+        					<div id="item1" class="dojoDndItem item" dndType="divItem">item1</div>
+        					<img src="w3c.jpg" class="dojoDndItem item" dndType="imageItem"></img>
+        					<a href="http://www.w3.org/TR/html5/" class="dojoDndItem item" dndType="linkItem">HTML5 specification</a>
+        				</div>
+        			</td>
+        			<td style="width:50%;border:2px dashed;">
+        				<div id="target" style="height:400px;" dojoType="dojo.dnd.Target" accept="divItem, imageItem">
+        				</div>
+        			</td>
+        		</tr>
+        	</tbody>
+        </table>
+
+    </body>
+</html>

@@ -1,0 +1,219 @@
+<HTML xmlns:v>
+<style>
+v\:*{behavior:url(#default#VML)}
+v\:textpath{font-family:楷体_gb2312;font-size:26px;v-text-align:left}
+</style>
+<body>
+<xmp id=xLyric style=display:none>
+[ti:请跟我来]
+[ar:苏芮&虞戡平]
+[al:]
+[00:00.00]曲 : 梁弘志
+[00:06.34]词 : 梁弘志 
+[00:16.00]<1-3:3;6:2;7:3>我踩着不变的步伐 
+[00:22.19]<3:2;6:2;9:2>是为了配合你的到来 
+[00:28.54]在慌张迟疑的时候 
+[00:35.25]请跟我来 
+[00:41.61]我带着梦幻的期待 
+[00:47.96]是无法按捺的情怀 
+[00:53.99]在你不注意的时候 
+[01:00.75]请跟我来 
+[02:19.49][01:10.00]别说什么 
+[02:26.39][01:16.28]那是你无法预知的世界 
+[02:33.94][01:23.51]别说 你不用说 
+[02:39.72][01:29.32]你的眼睛已经告诉了我 
+[02:52.22][01:42.46]当春雨飘呀飘的飘在 
+[02:58.54][01:48.41]你滴也滴不完的发梢 
+[03:04.62][01:54.53]戴着你的水晶珠链 
+[03:11.60][02:01.36]请跟我来 
+[03:19.24][02:07.02]www.aboutplayer.com
+</xmp>
+</body>
+</html>
+<script>
+window.onerror=function(){return false}
+start()
+function start(){
+ browser_ini()
+ timer_ini()
+ emv_ini()
+ lrc.setData(oo("xLyric").innerHTML)
+ lrc.write("歌曲载入中，请耐心等待...","l")
+ emv.play("mms://218.66.102.192/mp3/2005-01-06/fea30a20-e49f-4ebc-8f25-44cfe4830ca7.wma")
+}
+function emv_ini(){
+ var l
+ window.emv={}
+ lrc_ini()
+ l="<div id=bxEmv style=position:absolute;left:180;top:50;width:600;height:460>"
+ l+="<div style=position:absolute;left:0;top:0;width:600;height:460;></div>"
+ l+="<div id=bxEmvScreen style=position:absolute;overflow:hidden;left:19;top:26;width:560;height:360;>"
+ l+="</div>"
+ l+="</div>"
+ l+="<object classid=clsid:22D6F312-B0F6-11D0-94AB-0080C74C7E95 id=mplayer width=250 height=200 style=display:none></object>"
+ insHtm(document.body,l)
+ emv.play=function(url){oo("mplayer").FileName=url;oo("mplayer").Play()}
+ emv.time=function(){
+  var mPos=mplayer.CurrentPosition,n=lrc.i
+  var n1,o,len,w,per,n0,n1
+  n1=n<lrc.arr.length-1?lrc.arr[n+1].slice(0,"|")*1:9999
+  if(n1<mPos){
+   lrc.i++
+   n++
+   if(n==0)
+    lrc.write(lrc.arr[n].slice("|"),"l")
+   if(n<lrc.arr.length-1)
+    lrc.write(lrc.arr[n+1].slice("|"),n%2==1?"l":"r")
+  }
+  if(n>=0){
+   n0=lrc.arr[n].slice(0,"|")
+   n1=lrc.arr.length>n+1?lrc.arr[n+1].slice(0,"|"):4
+   o=oo("bxCaption_"+(n%2==0?"l":"r")+"_cover")
+   len=o.time!=""?o.time*1:n1-n0
+   per=(mPos-n0)/len
+   for(i=0.001;i<1;i+=0.001){
+    per1=lrc.getRealPos(o,i)
+    if(per1>=per)
+     break
+   }
+   o.style.width=o.width*i
+  }
+ }
+ timer.add("emv.time()")
+}
+function lrc_ini(){
+ window.lrc={}
+ lrc.wordPer=function(str,pos){
+  return str.slice(0,pos).replace(/[^\x00-\xff]/g,"  ").length/str.replace(/[^\x00-\xff]/g,"  ").length
+ }
+ lrc.setData=function(str){
+  var l,a,i,ad,n,j
+  str=str.replace(/\|/g,"").replace(/\r\n/g,"\n")
+  str=str.replace(/\[(\d\d)\:(\d\d)\.(\d\d)\]/g,function($0,$1,$2,$3){return ($1*60+$2*1+$3/100)+"|"})
+  a=str.split("\n")
+  lrc.arr=new Array()
+  for(i=0;i<a.length;i++){
+   ad=a[i].split("|")
+   for(j=1;j<ad.length;j++){
+    lrc.arr.add(ad[j-1]+"|"+ad[ad.length-1])
+   }
+  }
+  lrc.i=-1
+  sortIndex=0
+  sortDir=1
+  lrc.arr.sort(sortFoo)
+ }
+ lrc.getRealPos=function(obj,pos){
+  var a=obj.path,zoom=obj.zoom,pos1=pos*zoom
+  var a,i,ad
+  for(i=0;i<a.length;i++){
+   ad=a[i]
+   if(pos<=ad[0])
+    continue
+   if(pos>ad[0]&&pos<=ad[1])
+    pos1+=(zoom*ad[2]-zoom)*(pos-ad[0])
+   else{
+    pos1+=(zoom*ad[2]-zoom)*(ad[1]-ad[0])
+   }
+    
+  }
+  return pos1
+ }
+ lrc.write=function(str,pos){
+  var word=str,style=""
+  var x,y,l,w,w1,o,a,i,ad
+  if(/^\<.+\>/.test(str)){
+   word=str.slice(">")
+   style=str.slice(1).slice(0,">")
+  }
+  w=word.replace(/[^\x00-\xff]/g,"  ").length*13+2
+  if(pos=="l"){
+   x=40
+   y=285
+  }
+  else{
+   x=520-w
+   y=315
+  }
+  l="<div id=bxCaption_"+pos+" style='position:absolute;left:"+x+";top:"+y+";width:"+w+";height:32;overflow:hidden'>"
+  l+="<v:curve to=800,1 strokecolor=black strokeweight=3 style=position:absolute;top:14>"
+  l+="<v:path textpathok=t /><v:textpath on=t string='"+word+"' /></v:curve>"
+  l+="<v:curve to=800,1 strokecolor=white fillcolor=white strokeweight=1 style=position:absolute;top:14>"
+  l+="<v:path textpathok=t /><v:textpath on=t string='"+word+"' /></v:curve>"
+  l+="</div>"
+  l+="<div id=bxCaption_"+pos+"_cover width="+w+" style=position:absolute;left:"+x+";top:"+y+";width:0;height:32;overflow:hidden>"
+  l+="<v:curve to=800,1 strokecolor=white strokeweight=3 style=position:absolute;top:14>"
+  l+="<v:path textpathok=t /><v:textpath on=t string='"+word+"' /></v:curve>"
+  l+="<v:curve to=800,1 strokecolor=blue fillcolor=blue strokeweight=1 style=position:absolute;top:14>"
+  l+="<v:path textpathok=t /><v:textpath on=t string='"+word+"' /></v:curve>"
+  l+="</div>"
+  odel("bxCaption_"+pos)
+  odel("bxCaption_"+pos+"_cover")
+  insHtm("bxEmvScreen",l)
+  o=oo("bxCaption_"+pos+"_cover")
+  o.time=style.get("time")
+  o.path=new Array()
+  len1=1
+  a=style.split(";")
+  for(i=0;i<a.length;i++){
+   if(!/(\d+):(\d+)/.test(a[i]))
+    continue
+   if(/(\d+)-(\d+):(\d+)/.test(a[i])){
+    ad=/(\d+)-(\d+):(\d+)/.exec(a[i])
+    ad[0]=lrc.wordPer(word,ad[1]-1)
+    ad[1]=lrc.wordPer(word,ad[2]*1)
+    ad[2]=ad[3]
+   }
+   else{
+    ad=/(\d+):(.+)/.exec(a[i])
+    ad[0]=lrc.wordPer(word,ad[1]-1)
+    ad[1]=lrc.wordPer(word,ad[1]*1)
+   }
+   len1+=(ad[1]-ad[0])*(ad[2]-1)
+   o.path.add(ad)
+  }
+  o.zoom=1/len1
+ } 
+}
+function browser_ini(){
+ window.isIE=navigator.userAgent.indexOf("IE")>0
+ window.isIE5=navigator.userAgent.indexOf("IE 5.0")>0
+ String.prototype.trim=function(){return this.replace(/(^[\s]*)|([\s]*$)/g,"")}
+ String.prototype.inc=function(s1,s2){if(s2==null){s2=","};return (s2+this+s2).indexOf(s2+s1+s2)>-1?true:false}
+ String.prototype._slice="".slice
+ String.prototype.slice=function(n1,n2){var v,b1=typeof(n1)=="number",b2=typeof(n2)=="number";if(!b1||typeof(n2)=="string"){v=eval("this._slice("+(b1?n1:this.indexOf(n1)+(n2==null?1:0)+(this.indexOf(n1)==-1?this.length:0))+(n2==null?"":(b2?n2:(this.indexOf(n2)==-1?"":","+this.indexOf(n2))))+")")}else{v=isIE5&&n1<0&&n2==null?this._slice(this.length-1):eval("this._slice(n1"+(n2==null?"":","+n2)+")")}return v}
+ String.prototype.get=function(str,def){if(this.inc(str,";"))return 1;var a=this.match(new RegExp("(^|;)"+str+":[^;]*"));return a==null||str==""?(def==null?"":def):a[0].replace(";","").slice(str.length+1)}
+ Array.prototype.add=function(key){this[this.length]=key}
+ window.oo=function(obj){return typeof(obj)=="string"?document.getElementById(obj):obj}
+ window.insHtm=function(op,html,inEnd){op=oo(op);if(isIE){op.insertAdjacentHTML(inEnd==null?"beforeend":"afterbegin",html)}else{var r=op.ownerDocument.createRange();r.setStartBefore(op);eval("op."+(inEnd==null?"appendChild":"insertBefore")+"(r.createContextualFragment(html),op.firstChild)");}}
+ window.odel=function(obj){if(oo(obj)!=null){oo(obj).parentNode.removeChild(oo(obj))}}
+ if(!isIE){
+     HTMLElement.prototype.contains=function(node){if(!node)return false;do if(node==this){return true}while(node=node.parentNode){return false}}
+  Event.prototype.__defineGetter__("srcElement",function(){var node=this.target;while(node.nodeType!=1){node=node.parentNode}return node})
+  Event.prototype.__defineGetter__("toElement",function(){return this.relatedTarget})
+ }
+}
+function timer_ini(){
+ window.timer={}
+ timer.handle=null
+ timer.queue=""
+ timer.i=0
+ timer.add=function(key){if(!timer.queue.inc(key,";")){timer.queue+=key+";"}}
+ timer.del=function(key){timer.queue=move.queue.replace(key+";","")}
+ timer.inv=function(){
+  window.clearTimeout(timer.handle)
+  eval(timer.queue)
+  timer.i++
+  timer.handle=window.setTimeout("timer.inv()",10)
+ }
+ timer.inv()
+}
+function sortFoo(v1,v2){
+    var s1=v1.split("|")[sortIndex],s2=v2.split("|")[sortIndex]
+    if(!isNaN(s1)&&!isNaN(s2)){
+  s1*=1
+  s2*=1
+    }
+ return (s1==s2?0:(s1>s2?1:-1))*sortDir
+}
+</script>

@@ -1,0 +1,15 @@
+.tasktable, .tasktable td, .tasktable th{
+    font-size: 12px;
+    padding: 2px;
+    border: 1px solid #FF6666;
+    border-collapse: collapse;
+    font-family: Tahoma, Geneva, sans-serif;
+    text-align: center;
+}
+textarea{
+    width: 850px;
+    height: 150px;
+}
+#channelurl{
+    width: 850px;
+}

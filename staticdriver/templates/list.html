@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>离线下载器</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<link href="static/style.css" rel="stylesheet" type="text/css" />
+<!--<script type="text/javascript" src="static/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="static/list.js"></script>-->
+</head>
+<body>
+<div class="head">
+<h1 id="header">下载列表</h1>
+</div>
+<div class="control">
+<table>
+<tr>
+<td><a href="/list">刷新</a></td>
+<td><a href="/add">新建下载任务</a></td>
+<td><div class="user"><strong>{{nickname}}</strong> | <a href="{{logout_url}}">退出</a> | <a href="{{change_user_url}}">切换用户</a></div></td>
+</tr>
+</table>
+</div>
+<div class="filelist">
+<table class="filetable">
+<tr>
+<th>状态</th>
+<th>文件名</th>
+<th>进度</th>
+<th>大小</th>
+<th>创建日期</th>
+<th>地址</th>
+<th>mime-type</th>
+<th>操作</th>
+</tr>
+{%for file in filelist%}
+<tr>
+<td>{{file.status}}</td>
+<td>{{file.name}}</td>
+<td>{{file.percent}}</td>
+<td>{{file.size}}</td>
+<td>{{file.add_time}}</td>
+<td><a href="{{file.url}}">右键复制</a></td>
+<td>{{file.mimetype}}</td>
+<td><a href="/resume?file={{file.key}}">继续任务</a> <a href="/delete?file={{file.key}}">删除任务(待修改)</a> <a href="/stop?file={{file.key}}">停止任务(待修改)</a></td>
+</tr>
+{%endfor%}
+</table>
+</div>
+<div class="footer">
+ <a href="">©Online Downloader</a> • Powered and designed by Eggfly •<a href="https://developers.google.com/appengine/"><img src="https://developers.google.com/appengine/images/appengine-noborder-120x30.gif" alt="Powered by Google App Engine" /></a>
+</div>
+</body>
+</html>

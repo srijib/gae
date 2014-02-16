@@ -1,0 +1,78 @@
+<HTML><HEAD><TITLE>Flash 播放器</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<META content="Microsoft FrontPage 4.0" name=GENERATOR></HEAD>
+<BODY>
+<SPAN id=Base></SPAN><BR>
+<INPUT onclick=flash.Zoom(50) type=button value=放大>
+<INPUT onclick=flash.Zoom(200) type=button value=缩小>
+<INPUT onclick=flash.Zoom(0) type=button value=100%>
+<INPUT id=Info size=42>
+<BR> 
+<SCRIPT> 
+var Obj,cur,PMax,num,iSize,Chars; 
+
+function ShowFlash(){ 
+var f_Url=window.event.srcElement.href;//*
+var f_Name=window.event.srcElement.innerText; //* 
+PLeft=-Arrow.offsetWidth/2 ; 
+Arrow.style.left=PLeft; 
+PMax=Arrow.parentElement.offsetWidth-Arrow.offsetWidth-2*PLeft; 
+if(f_Url.substr(f_Url.length-4)!=".swf"){alert('错误url');return} 
+if(typeof(num)=='number'){ToStop();} 
+Base.innerHTML="<object id=flash classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' style='width:300;height:250;display:none'><param name='movie' value="+f_Url+"><param name='quality' value='high'></object>" ; 
+num=setInterval("if(flash.readyState!=4){Info.value='Flash加载中，请稍候 … '+flash.PercentLoaded()+'％'};else{flash.style.display='block';clearInterval(num);ToPlay();}",5); 
+} 
+
+function MouseDown(){ 
+ToStop(1); 
+Obj=arguments[0]; 
+Obj.setCapture(); 
+cur=event.clientX-Arrow.style.pixelLeft; 
+} 
+
+
+function MouseMove(){ 
+if(Obj!=null){ 
+Obj.style.pixelLeft=(Obj.style.pixelLeft>PMax)?PMax:(Obj.style.pixelLeft<PLeft)?PLeft:event.clientX-cur; 
+flash.GotoFrame(parseInt(flash.TotalFrames*(Arrow.style.pixelLeft-PLeft)/PMax)); 
+Info.value=flash.CurrentFrame()+'帧 / '+flash.TotalFrames+'帧 = '+parseInt(10000*flash.CurrentFrame()/flash.TotalFrames)/100+'%' ; 
+} 
+} 
+
+
+function MouseUp(){ 
+if(Obj!=null){ 
+ToPlay(); 
+Obj.releaseCapture() ; 
+Obj=null; 
+} 
+} 
+
+function ToPlay(){ 
+num=setInterval(SetInfo,10); 
+flash.Play(); 
+} 
+
+function ToStop(){ 
+if(typeof num=='number')clearInterval(num); 
+if(arguments[0]==null)SetInfo(); 
+flash.StopPlay(); 
+} 
+
+function SetInfo(){ 
+Arrow.style.pixelLeft=flash.CurrentFrame()*PMax/flash.TotalFrames+PLeft; 
+Info.value=flash.CurrentFrame()+'帧 / '+flash.TotalFrames+'帧 = '+parseInt(10000*flash.CurrentFrame()/flash.TotalFrames)/100+'%'; 
+} 
+
+</SCRIPT>
+<SPAN onmousedown="Arrow.style.pixelLeft=event.offsetX-Arrow.offsetWidth/2;MouseDown(eval('Arrow'));MouseMove();" 
+style="BACKGROUND:#000099; WIDTH: 400px; POSITION: relative; HEIGHT:3px">
+<SPAN onmouseup=MouseUp() onmousemove=MouseMove() 
+onmousedown=MouseDown(this);event.cancelBubble=true; id=Arrow style="LEFT: 0px; WIDTH: 2px; COLOR:#ffffff; POSITION: relative; TOP: 1px; HEIGHT: 1px" 
+cur="0">→</SPAN> 
+</SPAN>
+<br>
+<A onclick="ShowFlash();return false" href="singlemp3player.swf"
+>千里共婵娟</A> 
+</BODY>
+</HTML>

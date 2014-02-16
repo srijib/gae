@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>HTML5 DND</title>
+        <style type="text/css">
+            div {
+                display: block;
+            }
+            
+            #section {
+                margin-top: 20px;
+                text-align: center;
+                float: left;
+                width: 300px;
+                height: 300px;
+                border: 2px dashed;
+            }
+            
+            #title {
+                padding: 10px 20px;
+                background-color: #E6E6FA;
+            }
+            
+            #content {
+                margin-top: 20px;
+                text-align: left;
+            }
+            
+            #box {
+                float: left;
+                margin: 20px;
+                margin-left: 200px;
+                height: 500px;
+                width: 400px;
+                border: 2px solid;
+            }
+            
+            .over {
+                background: #e6e6fa;
+            }
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.5/dojo/dojo.xd.js"></script>
+        <script type="text/javascript">
+            dojo.addOnLoad(function(){
+                dojo.connect(dojo.byId('title'), 'dragstart', function(e){
+                		console.log("item dragstart");
+                    e.dataTransfer.setData('id', this.id);
+                    e.dataTransfer.setData("my define type", "the content of my define type.")
+                    
+                    e.dataTransfer.addElement(dojo.byId("content"));
+                });
+                
+                var box = dojo.byId('box');
+                dojo.connect(box, 'dragover', function(e){
+                    if (e.preventDefault) e.preventDefault(); // allows us to drop
+                    dojo.addClass(box, "over");
+                    e.effectAllowed = 'copy';
+                    
+                });
+                
+                dojo.connect(box, 'dragenter', function(e){
+                	e.effectAllowed = 'copy';
+                    return false;
+                });
+                
+                dojo.connect(box, 'dragleave', function(){
+                    dojo.removeClass(box, "over");
+                });
+                
+                dojo.connect(box, 'drop', function(e){
+                    if (e.stopPropagation) 
+                        e.stopPropagation(); // stops the browser from redirecting
+                    var msg = "The content of dataTranfer is:<br />";
+                    if (e.dataTransfer.types) {
+                        for (var i = 0; i < e.dataTransfer.types.length; i++) {
+                            var type = e.dataTransfer.types[i];
+                            var content = e.dataTransfer.getData(type);
+                            msg += (type + ":" + content + "<br />");
+                        }
+                    };
+                    this.innerHTML = msg;
+                    return false;
+                });
+            })
+        </script>
+    </head>
+    <body>
+        <h1>HTML5 DND Advanced Demo</h1>
+        <div id="section">
+        		<div id="source">
+            <div id="title" draggable="true">
+                drag me!!!
+            </div>
+          </div>
+            <div id="content">
+                In this drag we show setData, getData, effectAllowed, dropEffect, addElement!
+                <br/>
+                When you drag you can see the hole section move, and when you drag over the right box,you can see the cusor is different.
+            </div>
+        </div>
+        <div id="box">
+        </div>
+    </body>
+</html>

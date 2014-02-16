@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN" "http://www.wapforum.org/DTD/wml_1.1.xml">
+
+
+
+
+
+
+
+<wml>
+
+<head>
+	<meta forua="true" http-equiv="Cache-Control" content="no-cache" />
+	<meta forua="true" http-equiv="Cache-Control" content="max-age=0" />
+	<meta forua="true" http-equiv="Cache-Control" content="must-revalidate" />
+</head>
+
+	 <card id="start" title="WAP飞信" ontimer="/im/index/indexcenter.action?t=37319287463975901" 
+		newcontext="true">
+		<timer value="10"/>
+<p>  
+              您正在登录中国移动WAP飞信,请稍候…<br/><br/>
+     【我们在努力建设】<br/>
+<a href="http://f.10086.cn/info/c/?nid=839">全国免流量免费发短信>></a><br/><a href="http://f.10086.cn/f/wansheng">万圣节神秘大礼在等你>></a><br/>
+7月29日：畅聊转飞语更新,<a href="http://f.10086.cn/f/liaotian/">邀请好友一起畅聊不可吧>></a><br/>
+7月21日：搜友功能帮您快速定位好友,还能查找非好友！<br/>
+6月7日：你可能认识的人上线,帮您找到好朋友！<br/>
+温馨提示:请勿轻信汇款,中奖和话费充值等信息,谨防受骗。<br/>
+<a href="http://f.10086.cn/info/c/?nid=669">查看更多>></a><br/>
+
+     
+
+
+
+<br/>
+
+
+
+<a href="http://f.10086.cn/space/myspace/layout.action">空间</a>-<a href="http://f.10086.cn/jy/home/index.action">家园</a>-<a href="/im/index/index.action?t=37319287466220901">WAP飞信</a><br/>
+<a href="http://f.10086.cn/index.jsp">手机飞信网</a>-<a href="http://f.10086.cn/info/c/?nid=29">导航</a>-<a href="http://f.10086.cn/portal/cscenter.action?do=layout">客服</a>
+<br/>
+
+
+[11月08日 19:18]
+
+
+</p>
+</card>
+</wml>

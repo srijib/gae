@@ -1,0 +1,21 @@
+body{font-family:Verdana,宋体;background-color: #008080; font-size:9px;color:yellow;background-image: url()}
+table,TD,DIV{font-family:Tahoma;cursor:default;font-size:9pt}
+#beta{color: #FFFFFF}
+.overout{  }
+.over{color: #FFFFFF; background-color: #000080 }
+A:link {text-decoration: none;color:yellow} 
+A:visited {text-decoration: none;color:yellow}A:hover{color:white}
+.shuru{background-color: blue}
+.up1{ background-color: #008000; border-left: 1 solid #B9FFB9;border-right: 1 solid #002200; border-top: 1 solid #B9FFB9; border-bottom: 1 solid #002200 }
+.up{ background-color: #008000; border-left: 2 solid #B9FFB9;border-right: 2 solid #002200; border-top: 2 solid #B9FFB9; border-bottom: 2 solid #002200 }
+.down1{ background-color: #008000; border-left: 1 solid #002200;border-right: 1 solid #B9FFB9; border-top: 1 solid #002200; border-bottom: 1 solid #B9FFB9 }
+.down{ background-color: #008000; border-left: 2 solid #002200;border-right: 2 solid #B9FFB9; border-top: 2 solid #002200; border-bottom: 2 solid #B9FFB9 }
+.ico{position: relative; top:5;color:yellow; cursor: default;font-weight: normal}
+.ico_over{position: relative; top: 5;color:red; cursor: default;font-weight: normal}
+HR{width:95%;border: 1px inset #d9FFB9}
+.date{border: 1px inset yellow;cursor=default;color:#000000;background-color: #FFFFDF}
+.link{font-size:9pt;color:yellow}
+.title{PADDING-LEFT: 8px;background-color:red;cursor:move;color:white}
+button{font-size:9pt;font-family:宋体;color:black}li{padding:2px}input { border: 1 solid #000000; padding: 1 }
+.link{padding-left:16;padding-top:1;padding-bottom:1;font-family:宋体}
+.overlink{padding-left:16;padding-top:1;padding-bottom:1;background-color:highlight;color:highlighttext;font-family:宋体}

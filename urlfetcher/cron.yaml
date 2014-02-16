@@ -1,0 +1,9 @@
+cron:
+- description: daily url check job
+  url: /checkalive.py
+  schedule: every day 22:00
+  timezone: Asia/Shanghai
+- description: daily url fetcher job
+  url: /fetchurl.py
+  schedule: every 4 hours
+  timezone: Asia/Shanghai

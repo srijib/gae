@@ -1,0 +1,67 @@
+﻿<html>
+<head>
+<script src="/static/jquery.js"></script>
+<title>嗨!收音机</title>
+<link type="text/css" rel="stylesheet" href="/static/main.css" />
+</head>
+<body>
+<div id='player' style='visibility:hidden'>
+<table>
+<tr><td>
+<img id='picture' style='visibility:hidden' onload="$('#picture').attr('style','');$('#player').attr('style','');"></img><br/>
+</td>
+<td>
+<a id='title'></a><br/>
+<a id='artist'></a><br/>
+<a id='albumtitle'></a><br/>
+<form action="/down" method="post" name="down" target="_blank">   
+<input type="hidden" name="url" id='url'>
+</form><br/>
+<a href=# onclick="document.down.submit()">下载歌曲</a>
+</td>
+</table>
+<video id="media"  controls="true" autoplay="true" onunload='alert("onunload");' onchange='alert("onchange");' onload='alert("load");' onerror='alert("onerror");'></video>
+</div>
+<script>
+function initplayer(song){
+  $('#title').empty();
+  $('#artist').empty();
+  $('#albumtitle').empty();
+  $('#picture').attr('src',song['picture']);
+  $('#picture').attr('alt',song['albumtitle']+" - "+song['artist']);
+  $('#media').attr('src',song['url']);
+  $('#url').attr('value',song['url']);
+
+  $('#title').append("歌曲: "+song['title']);
+  $('#artist').append("歌手: "+song['artist']);
+  $('#albumtitle').append("专辑: "+song['albumtitle']);
+
+}
+$.getJSON("/fetch",
+        function(data){
+          var songs = data.song;
+          initplayer(songs[0]);
+        });
+</script>
+</body>
+</html>
+<!-- 
+onerror="this.style.display='none'"
+
+$(document).ready(function(){
+  //$('#player').attr('style','');
+});
+
+<p id="show"></p>
+
+          //$.each(songs,function(i, song){
+            //$.each(song, function(key){
+            //  //alert(song[key]);
+            //  $('#show').append(key+": " + song[key]+"<br/>");
+            //});
+            //$('#show').append("<br/>");
+          //});
+
+
+<EMBED id="media" autostart="true" />
+-->

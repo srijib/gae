@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>网盘</title>
+</head>
+<body>
+<h1>上传到网盘</h1>
+<form method="post" action="{{upload_url}}" enctype="multipart/form-data">
+    <input type="file" name="data" /><input type="submit" value="上传" /><input type="hidden" name="disk_key" value="{{disk_key}}">
+</form><span style="color:#F00;font-size:12px">注:文件最大10M,类型不限</span>
+<h4>文件列表:</h4>
+<table border="1px" style="font-size:12px;text-align:center;border-style:solid;border-width:1px;border-collapse:collapse;">
+    <tr><td>文件名</td><td>文件大小</td><td>上传时间</td><td>下载次数</td><td>地址</td></tr>
+{% for f in files %}
+    <tr>
+      <td style="max-width:300px;overflow:hidden;">{{f.filename}}</td><td>{{f.size_str}}</td><td>{{f.time}}</td><td>{{f.downloads}}</td><td><a href="/dl/{{f.key}}">下载</a> {{f.preview}}</td></tr>
+{% endfor %}
+</table>
+<p><a href="/status">Server status</a></p>
+</body>
+</html>

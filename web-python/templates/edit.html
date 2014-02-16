@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Online Code Editor</title>
+<!--<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />-->
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<link href="static/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="static/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="static/editor.js"></script>
+</head>
+<body>
+<div class="head">
+<h1 id="header">{{name|default:"new_script.py"}}{%if new_file%}*{%endif%}</h1>
+<input type="hidden" id="defaultname" name="defaultname" value="{{defaultname|default:'new_script.py'}}" />
+<input type="hidden" id="name" name="name" value="{{name|default:''}}" />
+</div>
+<div class="control">
+<table>
+<tr>
+  <td><div id="new"><img src="static/new.png" /></div></td>
+  <td><div id="open"><img src="static/open.png" /></div></td>
+  <td><div id="save"><img src="static/save.png" /></div></td>
+  <td><div id="saveas"><img src="static/save-as.png" /></div></td>
+  <td><div id="run"><img src="static/run.png" /></div></td>
+  <td><div id="delete"><img src="static/delete.png" /></div></td>
+</tr>
+<tr>
+  <td><div>新建</div></td>
+  <td><div>列表</div></td>
+  <td><div>保存</div></td>
+  <td><div>另存</div></td>
+  <td><div>运行</div></td>
+  <td><div>删除</div></td>
+</tr>
+</table>
+</div>
+<div class="content">
+<textarea name="code" id="code">{{code}}</textarea>
+</div>
+</body>
+</html>

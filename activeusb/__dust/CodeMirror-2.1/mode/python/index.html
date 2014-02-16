@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Python</title>
+    <link rel="stylesheet" href="../../lib/codemirror.css">
+    <script src="../../lib/codemirror.js"></script>
+    <script src="python.js"></script>
+    <link rel="stylesheet" href="../../theme/default.css">
+    <link rel="stylesheet" href="../../theme/night.css"> 
+    <link rel="stylesheet" href="../../theme/neat.css"> 
+    <link rel="stylesheet" href="../../theme/elegant.css"> 
+    <link rel="stylesheet" href="../../css/docs.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <style type="text/css">
+      .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}
+      .activeline {background: #0000aa/*#fe97e7*/ !important; /*opacity:0.9;*/}
+      .fullscreen {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        margin: 0;
+        padding: 0;
+        border: 0px solid #BBBBBB;
+        opacity: 1;
+      }
+      span{
+        font-size: small;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>PyIDE</h1>
+    
+    <div>
+      <span>Theme:</span><select onchange="selectTheme(this)">
+        <option>default</option>
+        <option selected>night</option>
+        <option>neat</option>
+        <option>elegant</option>
+      </select>
+      <input type="button" onclick="search()" value="Search" />
+      <input type="text" style="width: 5em" id="query" value="class"> or
+      <input type="button" onclick="replace()" value="replace" /> it by
+      <input type="text" style="width: 5em" id="replace"> 
+    </div>
+    <div>
+    <textarea id="code" name="code">
+# Some Example code
+import os
+from package import ParentClass
+
+@nonsenseDecorator
+def doesNothing():
+    pass
+
+class ExampleClass(ParentClass):
+    @staticmethod
+    def example(inputStr):
+        a = list(inputStr)
+        a.reverse()
+        return ''.join(a)
+
+    def __init__(self, mixin = 'Hello'):
+        self.mixin = mixin
+# String Literals
+'For\''
+"God\""
+"""so loved
+the world"""
+'''that he gave
+his only begotten\' '''
+'that whosoever believeth \
+in him'
+''
+
+# Identifiers
+__a__
+a.b
+a.b.c
+
+# Operators
++ - * / % & | ^ ~ < >
+== != <= >= <> << >> // **
+and or not in is
+
+# Delimiters
+() [] {} , : ` = ; @ .  # Note that @ and . require the proper context.
++= -= *= /= %= &= |= ^=
+//= >>= <<= **=
+
+# Keywords
+as assert break class continue def del elif else except
+finally for from global if import lambda pass raise
+return try while with yield
+
+# Python 2 Keywords (otherwise Identifiers)
+exec print
+
+# Python 3 Keywords (otherwise Identifiers)
+nonlocal
+
+# Types
+bool classmethod complex dict enumerate float frozenset int list object
+property reversed set slice staticmethod str super tuple type
+
+# Python 2 Types (otherwise Identifiers)
+basestring buffer file long unicode xrange
+
+# Python 3 Types (otherwise Identifiers)
+bytearray bytes filter map memoryview open range zip
+
+</textarea></div>
+    <script>
+      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        mode: {name: "python",
+               version: 2,
+               singleLineStringErrors: true},
+        lineNumbers: true,
+        indentUnit: 4,
+        tabMode: "shift",
+        matchBrackets: true,
+        theme: "night",
+        onKeyEvent: function(i, e) {
+          // Hook into F11
+          if ((e.keyCode == 122 || e.keyCode == 27) && e.type == 'keydown') {
+            e.stop();
+            return toggleFullscreenEditing();
+          }
+        }
+      });
+      function selectTheme(node) {
+        var theme = node.options[node.selectedIndex].innerHTML;
+        editor.setOption("theme", theme);
+      }
+      function toggleFullscreenEditing()
+      {
+        var editorDiv = $('.CodeMirror-scroll');
+        if (!editorDiv.hasClass('fullscreen')) {
+            toggleFullscreenEditing.beforeFullscreen = { height: editorDiv.height(), width: editorDiv.width() }
+            editorDiv.addClass('fullscreen');
+            editorDiv.height('100%');
+            editorDiv.width('100%');
+            editor.refresh();
+        }
+        else {
+            editorDiv.removeClass('fullscreen');
+            editorDiv.height(toggleFullscreenEditing.beforeFullscreen.height);
+            editorDiv.width(toggleFullscreenEditing.beforeFullscreen.width);
+            editor.refresh();
+        }
+      }
+    //var editor = CodeMirror.fromTextArea(document.getElementById("code"), {mode: "text/html", lineNumbers: true});
+     
+    var lastPos = null, lastQuery = null, marked = [];
+     
+    function unmark() {
+      for (var i = 0; i < marked.length; ++i) marked[i]();
+      marked.length = 0;
+    }
+     
+    function search() {
+      unmark();                     
+      var text = document.getElementById("query").value;
+      if (!text) return;
+      for (var cursor = editor.getSearchCursor(text); cursor.findNext();)
+        marked.push(editor.markText(cursor.from(), cursor.to(), "searched"));
+     
+      if (lastQuery != text) lastPos = null;
+      var cursor = editor.getSearchCursor(text, lastPos || editor.getCursor());
+      if (!cursor.findNext()) {
+        cursor = editor.getSearchCursor(text);
+        if (!cursor.findNext()) return;
+      }
+      editor.setSelection(cursor.from(), cursor.to());
+      lastQuery = text; lastPos = cursor.to();
+    }
+     
+    function replace() {
+      unmark();
+      var text = document.getElementById("query").value,
+          replace = document.getElementById("replace").value;
+      if (!text) return;
+      for (var cursor = editor.getSearchCursor(text); cursor.findNext();)
+        cursor.replace(replace);
+    }
+    </script>
+    <!-- <script src="../../demo/complete.js"></script>  -->
+    <p><strong>MIME types defined:</strong> text/x-python .</p>
+  </body>
+</html>

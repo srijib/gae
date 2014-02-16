@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>Test Details</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<link href="static/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="static/jscharts.js"></script>
+</head>
+<body>
+<div id="detail">
+    <h2>Task Details - {{task.name}}</h2>
+    <table class="tasktable">
+    <tr><th>task name</th><th>status</th><th>state</th><th>change state</th><th>test</th><!--<th>delete</th>--><th>add time</th><th>MPNS channel url</th></tr>
+    <tr>
+        <td>{{task.name}}</td>
+        <td>{{task.status_str}}</td>
+        <td>{{task.state}}</td>
+        <td><a href="{{task.toggle_link}}">{{task.toggle_link_str}}</a></td>
+        <td><a href="{{task.test_link}}" target="_blank">test now</a></td>
+        <!--<td><a href="{{task.delete_link}}">delete task</a></td>-->
+        <td>{{task.time}}</td>
+        <td>{{task.url}}</td>
+    </tr>
+    </table>
+</div>
+<div id="task graph">
+    <h2>Task Status Graph</h2>
+    <div id="graph">Loading graph...</div>
+    <script type="text/javascript">
+        var myData = eval("{{data_array}}");
+        var myChart = new JSChart('graph', 'line');
+        myChart.setDataArray(myData);
+        myChart.setTitle('{{chart_title}}');
+        myChart.setTitleColor('#8E8E8E');
+        myChart.setTitleFontSize(9);
+        myChart.setAxisNameX('时间');
+        myChart.setAxisNameY('推送状态');
+        myChart.setAxisColor('#C4C4C4');
+        myChart.setAxisValuesColor('#343434');
+        myChart.setAxisPaddingLeft(50);
+        myChart.setAxisPaddingRight(50);
+        myChart.setAxisPaddingTop(50);
+        myChart.setAxisPaddingBottom(40);
+        myChart.setAxisValuesNumberX(12);
+        myChart.setAxisValuesNumberY(3);
+        myChart.setGraphExtend(true);
+        myChart.setGridColor('#c2c2c2');
+        myChart.setLineWidth(1);
+        // myChart.setLineColor('#A4D314');
+        myChart.setSize(1280, 200);
+        //myChart.setBackgroundImage('chart_bg.jpg');
+        myChart.setLineSpeed(100);
+        myChart.draw();
+    </script>
+</div>
+<div id="results">
+    <h2>Last {{limit}} Results</h2>
+    <table class="tasktable">
+    <tr><th>time</th><th>info</th><th>response_code</th><th>subscription_status</th><th>deviceconnection_status</th><th>notification_status</th></tr>
+    {%for result in results%}
+    <tr>
+        <td>{{result.time}}</td>
+        <td>{{result.info}}</td>
+        <td>{{result.response_code}}</td>
+        <td>{{result.subscription_status}}</td>
+        <td>{{result.deviceconnection_status}}</td>
+        <td>{{result.notification_status}}</td>
+    </tr>
+    {%endfor%}
+    </table>
+</div>
+<div id="errors">
+    <h2>Last {{limit}} Errors</h2>
+    <table class="tasktable">
+    <tr><th>time</th><th>info</th><th>response_code</th><th>subscription_status</th><th>deviceconnection_status</th><th>notification_status</th></tr>
+    {%for error in errors%}
+    <tr>
+        <td>{{error.time}}</td>
+        <td>{{error.info}}</td>
+        <td>{{error.response_code}}</td>
+        <td>{{error.subscription_status}}</td>
+        <td>{{error.deviceconnection_status}}</td>
+        <td>{{error.notification_status}}</td>
+    </tr>
+    {%endfor%}
+    </table>
+</div>
+<h2><a href="/list">Back</a></h2>
+</body>
+</html>

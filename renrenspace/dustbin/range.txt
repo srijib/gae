@@ -1,0 +1,59 @@
+Range: bytes=0-631610069
+http://files.monkeysaudio.com/MAC_406.exe
+
+cgi.escape(greeting.content)
+
+
+[2010-2-24 17:01:41:296]
+GET /MAC_406.exe HTTP/1.1
+Accept: */*
+Cache-Control: no-cache
+Connection: Keep-Alive
+Host: files.monkeysaudio.com
+Pragma: no-cache
+Range: bytes=245859-278626
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)
+
+
+[2010-2-24 17:01:42:765]
+HTTP/1.1 206 Partial Content
+x-amz-id-2: Mb5FgrVebRNujfasLOcqiv9nKyltFmsHuEDFJUBc/ibsXovxmOeLMLv69tnBi+w2
+x-amz-request-id: 54B7BACEF37562B8
+Date: Wed, 24 Feb 2010 17:01:35 GMT
+x-amz-meta-s3fox-filesize: 1066094
+x-amz-meta-s3fox-modifiedtime: 1237413551162
+Last-Modified: Wed, 18 Mar 2009 22:00:05 GMT
+ETag: "2f11f3e06f27ebc3f1cd34b7836d4b5d"
+Content-Range: bytes 245859-278626/1066094
+Content-Type: application/octet-stream
+Content-Length: 32768
+Server: AmazonS3
+
+
+
+
+[2010-2-24 17:07:08:218]
+GET /Thunder5.9.16.1306.exe HTTP/1.1
+Range: bytes=0-1048
+Host: down.sandai.net
+Accept-Encoding: gzip
+User-Agent: AppEngine-Google; (+http://code.google.com/appengine)
+
+
+[2010-2-24 17:07:08:281]
+HTTP/1.1 206 Partial Content
+Date: Wed, 24 Feb 2010 17:07:01 GMT
+Server: Apache/2.2.8 (Unix)
+Last-Modified: Fri, 05 Feb 2010 11:29:51 GMT
+ETag: "1cf8015-c4f7e0-47ed8c50f69c0"
+Accept-Ranges: bytes
+Content-Length: 1049
+Content-Range: bytes 0-1048/12908512
+Content-Type: application/x-msdownload
+
+MZ?........ˇˇ..?......@...................................?....?.???L?This program cannot be run in DOS mode. $.......ÂuJ®°.$˚°.$˚°.$?.{˚£.$˚°.%?.$?.y˚∞.$˚ı7.˚®.$˚f."˚†.$˚Rich?$?...............PE..L...Íq.H........?.......Z...?.....%2.......p....@..........................P......ÅÁ?....................................§s..?...?.ê~..........∞‡?0............................................................p..?...........................text...4Y.......Z.................. ..`.rdata..?...p.......^..............@..@.data...òØ...?......p..............@..?ndata...?..@......................Ä..?rsrc...ê~...?..Ä...t..............@..@................................................................................................................................................................................................................................................................................................................................................................................UãÏÉÏ\É}..t+É}.FãE.u
+ÉH..
+
+
+
+

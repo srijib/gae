@@ -1,0 +1,35 @@
+body {
+	background-color: #000000;
+	background-image: url();
+}
+body,td,th {
+	font-size: 12px;
+	color: #FFFFFF;
+}
+.inputcss{
+	background: #FFFFFF;
+    border-bottom: #000000 1px solid;
+    border-left: #000000 1px solid;
+    border-right: #000000 1px solid;
+    border-top: #000000 1px solid;
+    color: #000000;
+    cursor: text;
+    font-size: 9pt;
+    padding: 1px;
+}
+a:link {
+	color: rgb(0,255,0);
+	text-decoration: none;
+}
+a:visited {
+	color: rgb(0,255,0);
+	text-decoration: none;
+}
+a:active {
+	color: rgb(0,255,0);
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+	color: #CCFFFF;
+}

@@ -1,0 +1,30 @@
+application: recorddesktop
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /upload
+  script: controller.py
+- url: /send_mail
+  script: controller.py
+- url: /getinterval
+  script: controller.py
+- url: /setinterval
+  script: controller.py
+- url: /get
+  script: controller.py
+  login: admin
+- url: /getbytime
+  script: controller.py
+  login: admin
+- url: /getzip
+  script: controller.py
+- url: /getbykey
+  script: controller.py
+- url: /clean
+  script: controller.py
+- url: /admin/.*
+  script: $PYTHON_LIB/google/appengine/ext/admin
+- url: .*
+  script: others.py

@@ -1,0 +1,24 @@
+body{font-family:Verdana,宋体;background-color: #637994; font-size:9px}
+table,TD,DIV{font-family:Tahoma;cursor:default;font-size:9pt;color:#F0F0F0}
+#beta{color: #E19D00}
+li{padding:2px}
+input {padding: 1 }
+HR{width:95%;border: 1px inset #FFB509}
+.overout{  }
+.out{  }
+.over{color: #FFFFFF; background-color: #000080 }
+A:link {text-decoration: none;color:#000000} 
+A:visited {text-decoration: none;color:#000000}A:hover{color:white}
+.shuru{background-color: #000080}
+.up1{ background-color: #E19D00; border-left: 1 solid #FFE3A4;border-right: 1 solid #8A6100; border-top: 1 solid #FFE3A4; border-bottom: 1 solid #8A6100 }
+.up{ background-color: #E19D00; border-left: 2 solid #FFE3A4;border-right: 2 solid #8A6100; border-top: 2 solid #FFE3A4; border-bottom: 2 solid #8A6100 }
+.down1{ background-color: #E19D00; border-left: 1 solid #8A6100;border-right: 1 solid #FFE3A4; border-top: 1 solid #8A6100; border-bottom: 1 solid #FFE3A4 }
+.down{ background-color: #E19D00; border-left: 2 solid #8A6100;border-right: 2 solid #FFE3A4; border-top: 2 solid #8A6100; border-bottom: 2 solid #FFE3A4 }
+.ico{font-family: Tahoma;position: relative; top:5;color: #FFFFFF; cursor: default;font-weight: normal}
+.ico_over{font-family: Tahoma;position: relative; top: 5;color: red; cursor: default;font-weight: normal}
+.date{border: 1px inset #000000;cursor=default;background-color: #FFFFDF}
+.link{font-size:9pt;color:#000000}
+.title{PADDING-LEFT: 8px;background-color: red;cursor:move;color:#ffffff;color:white}
+button{font-size:9pt;font-family:宋体;color:black}
+.link{padding-left:16;padding-top:1;padding-bottom:1;font-family:宋体}
+.overlink{padding-left:16;padding-top:1;padding-bottom:1;background-color:highlight;color:highlighttext;font-family:宋体}

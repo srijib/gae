@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "capture.py", line 11, in <module>
+  File "ConfigParser.pyo", line 520, in get
+ConfigParser.NoOptionError: No option 'url' in section: 'config'

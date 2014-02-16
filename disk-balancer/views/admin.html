@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>服务器信息</title>
+</head>
+<body>
+<h1>服务器存储信息:</h1>
+<table border="1px" style="font-size:12px;text-align:center;border-style:solid;border-width:1px;border-collapse:collapse;">
+    <tr><td>Number</td><td>ADDRESS</td><td>Used</td><td>Free</td><td>Key</td><td>*Remove*</td></tr>
+{% for d in disks %}
+    <tr><td>{{forloop.counter0}}</td><td>{{d.host}}</td><td>{{d.used_str}}</td><td>{{d.free_str}}</td><td>{{d.key}}</td><td><a href="/admin/remove_disk?key={{d.key}}">Remove</a></td></tr>
+{% endfor %}
+</table>
+<br>
+<form action="/admin/add_disk" method="GET">
+    <span>添加一个服务器:<span><br>
+    host地址: <input type="text" name="host"/>
+    <input type="submit" />
+</form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>服务器信息</title>
+</head>
+<body>
+<h1>服务器存储信息:</h1>
+<table border="1px" style="font-size:12px;text-align:center;border-style:solid;border-width:1px;border-collapse:collapse;">
+    <tr><td>Number</td><td>ADDRESS</td><td>Used</td><td>Free</td><td>Percent</td><td>Key</td></tr>
+{% for d in disks %}
+    <tr><td>{{forloop.counter0}}</td><td>{{d.host}}</td><td>{{d.used_str}}</td><td>{{d.free_str}}</td><td>{{d.percent_str}}</td><td>{{d.key}}</td></tr>
+{% endfor %}
+</table>
+<p style="color:#F00;">Used: {{used}} ({{percent}}) <br>Total: {{total}}<br>Free: {{free}}</p>
+</body>
+</html>

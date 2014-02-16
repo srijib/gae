@@ -1,0 +1,44 @@
+﻿cron:
+
+- description: Tasks!
+  url: /task
+  schedule: every 1 minutes
+
+- description: Morning_Me
+  url: /do?num=13821254203
+  schedule: every mon,tue,wed,thu,fri,sat,sun of month 23:59
+- description: Evening_Me
+  url: /do?num=13821254203
+  schedule: every mon,tue,wed,thu,fri,sat,sun of month 09:59
+
+- description: Morning_Laopo
+  url: /do?num=13920510408
+  schedule: every mon,tue,wed,thu,fri,sat,sun of month 23:58
+- description: Evening_Laopo
+  url: /do?num=13920510408
+  schedule: every mon,tue,wed,thu,fri,sat,sun of month 09:58
+
+- description: Morning_DaZui
+  url: /do?num=13682185616
+  schedule: every mon,tue,wed,thu,fri,sat,sun of month 23:57
+- description: Evening_DaZui
+  url: /do?num=13682185616
+  schedule: every mon,tue,wed,thu,fri,sat,sun of month 09:57
+
+- description: Morning_JieJie
+  url: /do?num=15832876867
+  schedule: every mon,tue,wed,thu,fri,sat,sun of month 23:56
+- description: Evening_JieJie
+  url: /do?num=15832876867
+  schedule: every mon,tue,wed,thu,fri,sat,sun of month 09:56
+
+- description: Morning_Father
+  url: /do?num=13820254193
+  schedule: every mon,tue,wed,thu,fri,sat,sun of month 23:55
+- description: Evening_Father
+  url: /do?num=13820254193
+  schedule: every mon,tue,wed,thu,fri,sat,sun of month 09:55
+
+- description: Evening_Bao Ma Ma
+  url: /do?num=13612040380
+  schedule: every mon,tue,wed,thu,fri,sat,sun of month 09:53

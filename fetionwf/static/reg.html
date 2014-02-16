@@ -1,0 +1,69 @@
+﻿<html>
+  <head>
+    <title>Message</title>
+    <link type="text/css" rel="stylesheet" href="/static/main.css" /> 
+  </head>
+  <body>
+    <h1>每日定时发送</h1>
+          <table width="210">
+          <form action="/task/reg" method="post">
+          <tr>
+            <td align="right">用户名:</td><td colspan="2"><input type="text" name="user" style="width:144px;height:18px;ime-mode:Disabled" maxlength="30"></input></td>
+          </tr>
+          <tr>
+            <td align="right">密码:</td><td colspan="2"><input type="password" name="login_passwd" style="width:144px;height:18px" maxlength="30"></input></td>
+          </tr>
+          <tr>
+            <td align="right">城市:</td><td colspan="2">
+<select id="obSelect" name="city" style="width:122px;height:18px">
+<option value="1">香港</option><option value="2">澳门</option>
+<option value="280">台北</option>
+<option value="125">北京</option><option value="252">上海</option>
+<option selected value="127">天津</option><option value="212">重庆</option>
+<option value="115">沈阳</option><option value="103">长春</option>
+<option value="17">哈尔滨</option><option value="244">南京</option>
+<option value="211">武汉</option><option value="292">广州</option>
+<option value="140">济南</option><option value="255">杭州</option>
+<option value="166">成都</option><option value="296">深圳</option>
+<option value="287">厦门</option><option value="28">乌鲁木齐</option>
+<option value="56">西宁</option><option value="57">兰州</option>
+<option value="69">呼和浩特</option><option value="78">银川</option>
+<option value="82">石家庄</option><option value="84">太原</option>
+<option value="150">拉萨</option><option value="179">昆明</option>
+<option value="186">西安</option><option value="189">郑州</option>
+<option value="218">长沙</option><option value="227">贵阳</option>
+<option value="232">桂林</option><option value="248">合肥</option>
+<option value="264">南昌</option><option value="276">福州</option>
+<option value="295">南宁</option><option value="303">海口</option> 
+</select>
+</td>
+          </tr>
+          <tr>
+          <td align="right">发送手机:</td><td colspan="2"><input onkeyup="value=this.value.replace(/\D+/g,'')" type="text" name="from_num" style="width:144px;height:18px;ime-mode:Disabled" maxlength="11"></input></td>
+          </tr>
+          <tr>
+            <td align="right">飞信密码:</td><td colspan="2"><input type="password" name="fetion_passwd" style="width:144px;height:18px"></input></td>
+          </tr>
+          <tr>
+            <td align="right">接收手机:</td><td colspan="2"><input onkeyup="value=this.value.replace(/\D+/g,'')" type="text" name="to_num" style="width:144px;height:18px;ime-mode:Disabled" maxlength="11"></input></td>
+          </tr>
+          <tr>
+            <td align="right">发送时间:</td>
+            <td>每天<input onkeyup="value=this.value.replace(/\D+/g,'')" type="text" name="hour" style="width:24px;height:18px;ime-mode:Disabled" maxlength="2" value="18"></input>:<input onkeyup="value=this.value.replace(/\D+/g,'')" type="text" name="minute" style="width:24px;height:18px;ime-mode:Disabled" maxlength="2" value="00" ></input></td>
+            <td align="left"><input type="submit" value="提交"></td></tr>
+          <tr>
+            <td colspan="3" width="200">说明:
+<br>1.用户名为任意非中文字符,仅起到识别作用.
+<br>2.密码任填,请记牢,删除任务时需要!
+<br>3.飞信密码输入要确保一次正确...........
+<br>4.网络资源有限,请谨慎提交,提交后请到任务信息中查看,若已经存在,请不要重复提交!
+<br>5.如果忘记密码需要重设,请联系我.
+<br>6.系统限制发送频率为每天一次,多id重复发送会被删除...
+
+</td>
+          </tr>
+          <tr><td align="right" colspan="3" width="200"><a href = "/task">查看当前任务列表</a> <a href = "/">返回主页</a></td></tr>
+          </form>
+          </table>
+  </body>
+</html>

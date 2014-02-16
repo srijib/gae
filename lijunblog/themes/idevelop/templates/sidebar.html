@@ -1,0 +1,80 @@
+<div id="sidebar">
+    <div class="top"></div>
+    <div class="sbar_a">
+        <ul>
+            <li class="categories"><h3>Categories</h3>
+                <ul>
+                {% for cate in categories %}
+                    <li><a href="/category/{{cate.slug}}">{{cate.name}} ({{cate.count}})</a></li>
+                {%endfor%}
+                </ul>
+            </li>
+            <li class="categories"><h3>Latest article</h3>
+                <ul>
+                {% for entry in blog.recentposts %}
+                    <li><a href="/{{entry.link}}">{{entry.title}}</a></li>
+                {%endfor%}
+                </ul>
+            </li>
+            <li class="categories"><h3>Links</h3>
+                <ul>
+                {% for link in blogroll %}
+                    <li><a href="{{link.href}}">{{link.linktext}}</a></li>
+                {%endfor%}
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="sbar_b">
+        <div class="feed-rss">
+            <p><a href="/feed"><span>All Posts RSS</span></a></p>
+            <p><a href="/feed"><span>All Posts Atom</span></a></p>
+            <p><a href="/feed"><span>Comments RSS</span></a></p>
+        </div>
+        <ul>
+            <li><h3>Latest comments</h3>
+                <ul class="comments">
+                {% for comment in recent_comments %}
+                    <li><a
+                        href="/{{comment.entry.link}}#comment-{{comment.key.id}}">{{comment.shortcontent}}...</a></li>
+                {%endfor%}
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li><h3>Others</h3>
+                <ul id="langpref">
+<script>
+
+    function loginp()
+    {
+       $.getJSON("/do/info_login", function(ret){
+              if( ret.islogin)
+              {
+                  html='<li><a href="{{self.logouturl}}">注销</a></li>';
+                if (ret.isadmin)
+                html+=' <li><a href="/admin">管理</a></li>';
+                $('#langpref').html(html);
+$('#loading').html('');
+              }
+              else
+              {$('#langpref').html('<li><a href="/admin"> 登录</a></li>');}
+$('#loading').html('');
+       });
+    }
+    loginp();
+</script>
+		</ul>
+		<ul style="margin-top:-2px;padding-top:0;">
+                    <li><a href="http://validator.w3.org/check/referer">Valid XHTML</a></li>
+                    <li><a href="http://gmpg.org/xfn/">XFN</a></li>
+                    <li><a href="http://code.google.com/appengine/">Google app engine</a></li>
+                    <li><a href="http://code.google.com/p/micolog/downloads/list">Micolog</a></li>
+                    <li><a href="http://gae.0565.com.cn">Li.Jun's Blog</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="bottom"></div>
+</div>

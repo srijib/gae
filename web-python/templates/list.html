@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Online Code Editor</title>
+<!--<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />-->
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<link href="static/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="static/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="static/list.js"></script>
+</head>
+<body>
+<div class="head">
+<h1 id="header">Online Code List</h1>
+<input type="hidden" id="defaultname" name="defaultname" value="{{defaultname|default:'new_script.py'}}" />
+<input type="hidden" id="name" name="name" value="{{name|default:''}}" />
+</div>
+<div class="control">
+<table>
+<tr>
+<td><div id="add"><img class="x22" src="static/add.png" /></div></td><td>新建</td>
+<td><div id="changelog"><img class="x22" src="static/changelog.png" /></div></td><td>更新日志</td>
+<td><div id="todo"><img class="x22" src="static/todo.png" /></div></td><td>待开发列表</td>
+<td><div id="help"><img class="x22" src="static/help.png" /></div></td><td>帮助</td>
+<td><div class="user"><strong>{{nickname}}</strong> | <a href="{{logout_url}}">退出</a> | <a href="{{change_user_url}}">切换用户</a></div></td>
+</tr>
+</table>
+</div>
+<div class="filelist">
+<table class="filetable">
+<tr><th>名称(点击编辑)</th><th>大小</th><th>创建日期</th><th>修改日期</th><th>操作</th></tr>
+{%for file in filelist%}
+<tr><td><a href="edit?name={{file.name}}">{{file.name}}</a></td><td>{{file.size}}</td><td>{{file.add_time}}</td><td>{{file.time}}</td><td><a href="runfile?name={{file.name}}">运行</a> <a href="/download?name={{file.name}}">下载</a> <a href="javascript:void(0)" id="delete" class="delete" filename="{{file.name}}">删除</a></td></tr>
+{%endfor%}
+</table>
+</div>
+<div class="footer">
+ <a href="">©Online Code Editor</a> • Powered and designed by Eggfly •<a href="https://developers.google.com/appengine/"><img src="https://developers.google.com/appengine/images/appengine-noborder-120x30.gif" alt="Powered by Google App Engine" /></a>
+</div>
+</body>
+</html>

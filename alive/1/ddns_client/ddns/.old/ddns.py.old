@@ -1,0 +1,48 @@
+#!/usr/bin/env python
+# -*- encoding: utf-8 -*-
+
+import urllib
+import time
+import datetime
+from dnspod.apicn import *
+
+DOMAIN_ID = 3533147
+RECORD_ID = 23535497
+EMAIL = 'lihaohua90@gmail.com'
+PASSWORD = 'Lihaohuaasdf'
+
+def get_ip_status():
+    url = "http://1.alive.sinaapp.com/ddns.php?check=true"
+    req = urllib.urlopen(url)
+    result = req.read()
+    return result.split("\n")
+def push_updated():
+    url = 'http://1.alive.sinaapp.com/ddns.php?updated=true'
+    req = urllib.urlopen(url)
+    result = req.read()    
+def set_ddns(ip):
+    api = RecordModify(
+        domain_id=DOMAIN_ID,
+        record_id=RECORD_ID,
+        sub_domain='@',
+        record_type='A',
+        record_line='默认',
+        value=ip,
+        ttl='120',
+        email=EMAIL,
+        password=PASSWORD
+    )
+    return api()
+if __name__ == '__main__':
+    result = get_ip_status()
+    print datetime.datetime.now().__str__()
+    if result[0] == 'changed' or time.time() - int(result[-1]) > 30*60:
+        print result
+        print set_ddns(result[1])
+        print
+        push_updated()
+    else:
+        print 'no update and time delta is not reached 30 min.'
+        print
+# end
+

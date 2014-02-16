@@ -1,0 +1,5 @@
+﻿cron:
+
+- description: Tasks!
+  url: /task
+  schedule: every 1 minutes

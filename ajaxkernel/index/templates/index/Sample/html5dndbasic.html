@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>HTML5 DND</title>
+        <style type="text/css">
+            div {
+                display: block;
+            }
+            
+            #items {
+                float: left;
+                width: 200px;
+            }
+            
+            .item {
+                text-align: center;
+                margin: 15px;
+                padding: 10px 20px;
+                width: 60px;
+                border: 2px dashed;
+            }
+            
+            #box {
+                float: left;
+                margin: 15px;
+                height: 500px;
+                width: 400px;
+				border: 2px solid;
+            }
+            
+            .over {
+            	background: #e6e6fa;
+            }
+
+        </style>
+        <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.5/dojo/dojo.xd.js"></script>
+        <script type="text/javascript">
+            dojo.addOnLoad(function(){
+            	
+            	var src = dojo.byId("source");
+                dojo.connect(src,'dragstart', function(e){
+                		console.log("dragstart");
+                		console.log(e.target.id);
+                    e.dataTransfer.setData('id', e.target.id);
+                });
+                
+                dojo.connect(dojo.byId("item2"),'drag', function(e){
+                       
+                });
+                 dojo.connect(src,'dragend', function(e){
+                       console.log("dragend");
+                       console.log(e);
+                });
+                
+                
+                dojo.connect(dojo.byId("target"),'dragstart', function(e){
+                    e.dataTransfer.setData('id', e.target.id);
+                    e.dataTransfer.setData('source', this.id);       
+                });
+                
+                
+								var target = dojo.byId('target');
+								dojo.connect(target, 'dragover', function(e){
+									// allows us to drop
+									console.log(e);
+									if (e.dataTransfer.getData('id') != "item3")  e.preventDefault(); 
+								});
+								
+								dojo.connect(target, 'dragenter', function(e){
+									console.log("dragenter");
+									console.log(e);
+									dojo.addClass(target, "over");
+								});
+								
+								dojo.connect(target, 'dragleave', function(){
+								    dojo.removeClass(target, "over");
+								});
+								
+								dojo.connect(target, 'drop', function(e){
+									dojo.removeClass(target, "over");
+									console.log(e.dataTransfer.types);
+									// stops the browser from redirecting
+								  if (e.stopPropagation) e.stopPropagation(); 
+								    
+								 
+								  if(dojo.isFF){
+								  	var itemId = e.dataTransfer.getData('id');
+								  	var dragItem = dojo.byId(itemId);
+								  	e.target.appendChild(dragItem);  	
+								  }
+                  
+                  
+                  else if(dojo.isChrome){
+                  	var dragItem = e.srcElement;
+                  	src.removeChild(dragItem);
+                  	e.target.appendChild(dragItem);
+                  }
+                  
+                  e.dataTransfer.dropEffect= 'none';
+                   // console.log(itemId);
+                   // var sourceId = e.dataTransfer.getData('source');
+                   // drag = dojo.byId(itemId);
+                   // console.log(e.target);
+                    //source = dojo.byId(sourceId);
+                    //source.removeChild(drag);
+                   // e.target.appendChild(drag);
+                    return false;
+                });
+            })
+        </script>
+    </head>
+    <body>
+        <h1>HTML5 DND Basic Demo</h1>
+		    <table style="width:100%;" cellspacing="20">
+        	<tbody>
+        		<tr>
+        			<td align="center"><h2>Source</h2>
+        			</td>
+        			<td align="center"><h2>Target</h2>
+        		 </td>
+        		</tr>
+        		<tr>
+        			<td style="width:50%; border:2px dashed;">
+        				<div id="source" style="height:300px;">
+        					<div id="item1" class="item" draggable="true">item1</div>
+        				<img id="item2" src="w3c.jpg" class="item"/>
+        					<a id="item3" href="http://www.w3.org/TR/html5/" class="item">HTML5 specification</a>
+        				</div>
+        			</td>
+        			<td style="width:50%;border:2px dashed;">
+        				<div id="target" style="height:300px;">
+        				</div>
+        			</td>
+        		</tr>
+        	</tbody>
+        </table>
+    </body>
+</html>

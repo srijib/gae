@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>WP7 Push Notification Test Once</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<link href="static/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="tasks">
+    <h2>Push Notification 请求测试</h2>
+    <form action="/once" method="POST">
+        Push Notification Type: <input type="radio" name="type" value="Tile" />Tile <input type="radio" name="type" value="Toast" />Toast <input type="radio" name="type" value="Raw" />Raw<br>
+        <br>
+        Channel Url:<br>
+        <input id="channelurl" name="url" value="http://" /><br>
+        Request Header:<br>
+        <textarea name="header"></textarea><br>
+        Request Body:<br>
+        <textarea name="body"></textarea><br>
+        <br>
+        <input type="submit" value="Send Notification Request"/><br>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+application: sjtu-bbs
+version: empty
+runtime: python
+api_version: 1
+
+handlers:
+
+# Admin
+- url: /admin.*
+  script: $PYTHON_LIB/google/appengine/ext/admin
+# Main Page
+- url: .*
+  script: main.py

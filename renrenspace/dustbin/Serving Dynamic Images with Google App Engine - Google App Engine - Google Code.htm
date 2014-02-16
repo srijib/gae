@@ -1,0 +1,687 @@
+
+<!-- saved from url=(0189)http://203.208.39.132/search?q=cache:MVlVxDfHfPMJ:code.google.com/appengine/articles/images.html+google+app+engine+blob&cd=1&hl=zh-CN&ct=clnk&gl=cn&st_usg=ALhdy2_qiS5kML8mYv-UjRiGcTvrJE7m9A -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--<BASE href="http://code.google.com/appengine/articles/images.html">--><BASE href="."><TITLE>Serving Dynamic Images with Google App Engine - Google App Engine - Google Code</TITLE></HEAD><BODY class="gc-documentation"><DIV style="margin:-1px -1px 0;padding:0;border:1px solid #999;background:#fff"><DIV style="margin:12px;padding:8px;border:1px solid #999;background:#ddd;font:13px arial,sans-serif;color:#000;font-weight:normal;text-align:left">这是 Google 对 <A href="http://code.google.com/appengine/articles/images.html" style="text-decoration:underline;color:#00c">http://code.google.com/appengine/articles/images.html</A> 的缓存。 这是该网页在 2010年2月10日 13:09:21 GMT 的快照。 <A href="http://code.google.com/appengine/articles/images.html" style="text-decoration:underline;color:#00c">当前页</A>在此期间可能已经更改。 <A href="http://www.google.com/intl/zh-CN/help/features_list.html#cached" style="text-decoration:underline;color:#00c">了解详情</A><BR><BR><DIV style="float:right"><A href="http://203.208.39.132/search?q=cache:MVlVxDfHfPMJ:code.google.com/appengine/articles/images.html+google+app+engine+blob&hl=zh-CN&newwindow=1&gl=cn&st_usg=ALhdy2_qiS5kML8mYv-UjRiGcTvrJE7m9A&strip=1" style="text-decoration:underline;color:#00c">纯文字版本</A></DIV>
+<DIV>突出显示以下搜索字词： <SPAN style="background:#ffff66;color:black;font-weight:bold">google</SPAN>&nbsp;<SPAN style="background:#a0ffff;color:black;font-weight:bold">app</SPAN>&nbsp;<SPAN style="background:#99ff99;color:black;font-weight:bold">engine</SPAN>&nbsp;<SPAN style="background:#ff9999;color:black;font-weight:bold">blob</SPAN>&nbsp;&nbsp;</DIV></DIV></DIV><DIV style="position:relative">
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+  
+  
+
+
+
+  
+    
+
+
+<SCRIPT type="text/javascript"><!--
+(function(){function a(){this.t={};this.tick=function(c){this.t[c]=(new Date).getTime()};this.tick("start")}var b=new a;window.jstiming={Timer:a,load:b};if(window.external&&window.external.pageT)window.jstiming.pt=window.external.pageT;})();
+
+var _tocPath_ = '/appengine/docs/_toc.ezt';
+var codesite_token = null;
+var logged_in_user_email = null;
+//--></SCRIPT>
+<LINK href="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/codesite.pack.04102009.css" type="text/css" rel="stylesheet">
+<SCRIPT src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/codesite_head.pack.04102009.js" type="text/javascript"></SCRIPT>
+<SCRIPT type="text/javascript">CODESITE_CSITimer['load'].tick('bhs');</SCRIPT>
+<LINK rel="search" type="application/opensearchdescription+xml" title="Google Code" href="http://code.google.com/osd.xml">
+
+<!--[if IE]><link rel="stylesheet" type="text/css" href="/css/iehacks.css"><![endif]-->
+
+    <LINK href="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/semantic_headers.css" rel="stylesheet" type="text/css">
+    <LINK href="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/local_extensions.css" rel="stylesheet" type="text/css">
+    <SCRIPT src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/customtabs.js" type="text/javascript"></SCRIPT>
+    <SCRIPT src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/ui.tabs.js" type="text/javascript"></SCRIPT>
+  
+
+  
+
+    
+    
+    <DIV id="gb">
+ <SPAN>
+  
+   
+   
+    <A href="http://code.google.com/appengine/articles/images.html#" id="projects-dropdown" onclick="return false;"><U>My favorites</U> <SMALL>▼</SMALL></A>
+    |
+   
+  
+    <A id="lang-dropdown" class="dropdown" href="http://code.google.com/" onclick="return false;"><IMG width="13" height="13" class="globeicon" src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/globe2_small.png"><U><SPAN>English</SPAN></U> <SMALL>▼</SMALL></A>
+  
+   
+    | <A href="https://www.google.com/accounts/Login?continue=http%3A%2F%2Fcode.google.com%2Fappengine%2Farticles%2Fimages.html&followup=http%3A%2F%2Fcode.google.com%2Fappengine%2Farticles%2Fimages.html" onclick="CODESITE_click(&#39;/gb/sc/signin&#39;);"><U>Sign in</U></A>
+   
+  
+ </SPAN>
+</DIV>
+
+<DIV class="gbh" style="left: 0pt;"></DIV>
+<DIV class="gbh" style="right: 0pt;"></DIV>
+
+<DIV id="gc-container">
+<A id="top"></A>
+<DIV id="skipto">
+  <A href="http://code.google.com/appengine/articles/images.html#gc-pagecontent-anchor">Skip to page content</A>
+  <A href="http://code.google.com/appengine/articles/images.html#gc-toc-anchor">Skip to main navigation</A>
+</DIV>
+
+<DIV id="gc-header">
+  <DIV id="logo"><A href="http://code.google.com/">
+  
+  
+     <IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/code_logo.png" height="40" width="161" alt="Google Code" style="border:0;margin:3px 0 0 0;">
+  
+  
+  </A></DIV>
+  <DIV id="search">
+    <DIV id="searchForm" class="searchForm">
+      <FORM id="cse" action="http://www.google.com/cse" accept-charset="utf-8" class="gsc-search-box" onsubmit="executeGSearch(document.getElementById(&#39;gsearchInput&#39;).value); return false;">
+      <NOSCRIPT></NOSCRIPT>
+      <DIV id="gsc-search-box">
+        <INPUT id="gsearchInput" type="text" name="q" maxlength="2048" class="gsc-input" autocomplete="off" title="Google Code Search" style="width:345px">
+        <DIV id="cs-searchresults" onclick="event.cancelBubble = true;"></DIV>
+        <INPUT title="Search" id="gsearchButton" class="gsc-search-button" name="sa" value="Search" type="submit">
+        <DIV class="greytext">e.g. "templates" or "datastore"</DIV>
+      </DIV>
+      </FORM>
+    </DIV> <!-- end searchForm -->
+  </DIV> <!-- end search -->
+
+
+
+
+</DIV> <!-- end gc-header -->
+
+
+<DIV id="codesiteContent">
+
+<A id="gc-topnav-anchor"></A>
+<DIV id="gc-topnav">
+  <H1 style="padding:0 0 0 6px;"><B style="color:black;background-color:#ffff66">Google</B> <B style="color:black;background-color:#a0ffff">App</B> <B style="color:black;background-color:#99ff99">Engine</B></H1>
+  <UL id="articles" class="gc-topnav-tabs">
+
+    <LI id="home_link">
+      <A href="http://code.google.com/appengine/" title="Google App Engine home page">Home</A>
+    </LI>
+  
+    <LI id="docs_link">
+      <A href="http://code.google.com/appengine/docs/" title="Official Google App Engine documentation">Docs</A>
+    </LI>
+  
+    <LI id="faq_link">
+      <A href="http://code.google.com/appengine/kb/" title="Answers to frequently asked questions about Google App Engine">FAQ</A>
+    </LI>
+  
+    <LI id="articles_link">
+      <A href="http://code.google.com/appengine/articles/" class="selected" title="Focused articles and tutorials for Google App Engine developers">Articles</A>
+    </LI>
+  
+    <LI>
+      <A href="http://googleappengine.blogspot.com/" title="Official Google App Engine blog">Blog</A>
+    </LI>
+  
+    <LI>
+      <A href="http://code.google.com/appengine/community.html" title="Community home for Google App Engine">Community</A>
+    </LI>
+  
+    <LI>
+      <A href="http://code.google.com/appengine/terms.html" title="Google App Engine terms of service">Terms</A>
+    </LI>
+  
+    <LI>
+      <A href="http://code.google.com/appengine/downloads.html" title="Download Google App Engine">Download</A>
+    </LI>
+  
+
+  </UL>
+</DIV> <!-- end gc-topnav -->
+
+    <DIV class="g-section g-tpl-170">
+
+      <A name="gc-toc-anchor"></A>  
+      <DIV class="g-unit g-first" id="gc-toc">
+        <UL class="treelist tlw-nested-only tlw-processed tlw-instance-0">
+  <LI><A href="http://code.google.com/appengine/downloads.html">Downloads</A></LI>
+  <LI><A href="http://code.google.com/status/appengine">System Status</A></LI>
+  <LI><A href="http://code.google.com/p/googleappengine/issues/list">Issue Tracker</A></LI>
+</UL>
+<DIV class="line"></DIV>
+<UL class="treelist tlw-nested-only tlw-processed tlw-instance-1">
+  <LI><H2 class="tlw-ignore">Getting Started</H2>
+    <UL>
+      <LI><A href="http://code.google.com/appengine/docs/whatisgoogleappengine.html">What Is <B style="color:black;background-color:#ffff66">Google</B> <B style="color:black;background-color:#a0ffff">App</B> <B style="color:black;background-color:#99ff99">Engine</B>?</A></LI>
+      <LI style="padding-top: 0px; padding-bottom: 0px; ">
+        <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Java"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Java" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/java/gettingstarted/">Java</A></DIV><UL id="1-sub-0" style="display: none; ">
+              <LI><A href="http://code.google.com/appengine/docs/java/gettingstarted/introduction.html">Introduction</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/gettingstarted/installing.html">Installing the Java SDK</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/gettingstarted/creating.html">Creating a Project</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/gettingstarted/usingusers.html">Using the Users Service</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/gettingstarted/usingjsps.html">Using JSPs</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/gettingstarted/usingdatastore.html">Using the Datastore with JDO</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/gettingstarted/staticfiles.html">Using Static Files</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/gettingstarted/uploading.html">Uploading Your Application</A></LI>
+
+        </UL>
+      </LI>
+      <LI style="padding-top: 0px; padding-bottom: 0px; ">
+        <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Python"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Python" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/python/gettingstarted/">Python</A></DIV><UL id="1-sub-1" style="display: none; ">
+            <LI><A href="http://code.google.com/appengine/docs/python/gettingstarted/introduction.html">Introduction</A></LI>
+  <LI><A href="http://code.google.com/appengine/docs/python/gettingstarted/devenvironment.html">The Development Environment</A></LI>
+  <LI><A href="http://code.google.com/appengine/docs/python/gettingstarted/helloworld.html">Hello, World!</A></LI>
+  <LI><A href="http://code.google.com/appengine/docs/python/gettingstarted/usingwebapp.html">Using the webapp Framework</A></LI>
+  <LI><A href="http://code.google.com/appengine/docs/python/gettingstarted/usingusers.html">Using the Users Service</A></LI>
+  <LI><A href="http://code.google.com/appengine/docs/python/gettingstarted/handlingforms.html">Handling Forms With webapp</A></LI>
+  <LI><A href="http://code.google.com/appengine/docs/python/gettingstarted/usingdatastore.html">Using the Datastore</A></LI>
+  <LI><A href="http://code.google.com/appengine/docs/python/gettingstarted/templates.html">Using Templates</A></LI>
+  <LI><A href="http://code.google.com/appengine/docs/python/gettingstarted/staticfiles.html">Using Static Files</A></LI>
+  <LI><A href="http://code.google.com/appengine/docs/python/gettingstarted/uploading.html">Uploading Your Application</A></LI>
+
+        </UL>
+      </LI>
+    </UL>
+  </LI>
+</UL>
+<DIV class="line"></DIV>
+<UL class="treelist tlw-nested-only tlw-processed tlw-instance-2">
+  <LI><H2 class="tlw-ignore">Java</H2>
+    <UL>
+          <LI><A href="http://code.google.com/appengine/docs/java/overview.html">Overview</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/runtime.html">Servlet Environment</A></LI>
+    <LI style="padding-top: 0px; padding-bottom: 0px; ">
+      <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Storing Data"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Storing Data" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/java/datastore/">Storing Data</A></DIV><UL id="2-sub-0" style="display: none; ">
+            <LI><A href="http://code.google.com/appengine/docs/java/datastore/overview.html">Overview</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/datastore/usingjdo.html">Using JDO</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/datastore/dataclasses.html">Defining Data Classes</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/datastore/creatinggettinganddeletingdata.html">Creating, Getting and Deleting Data</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/datastore/queriesandindexes.html">Queries and Indexes</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/datastore/transactions.html">Transactions</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/datastore/relationships.html">Relationships</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/datastore/stats.html">Statistics</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/datastore/usingjpa.html">Using JPA</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/datastore/package-summary.html">Low-level API</A></LI>
+
+      </UL>
+    </LI>
+    <LI style="padding-top: 0px; padding-bottom: 0px; ">
+      <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Services"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Services" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/java/apis.html">Services</A></DIV><UL id="2-sub-1" style="display: none; ">
+        <LI style="padding-top: 0px; padding-bottom: 0px; ">
+          <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Memcache"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Memcache" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/java/memcache/">Memcache</A></DIV><UL id="2-sub-2" style="display: none; ">
+                <LI><A href="http://code.google.com/appengine/docs/java/memcache/overview.html">Overview</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/memcache/usingjcache.html">Using JCache</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/memcache/package-summary.html">Low-level API</A></LI>
+
+          </UL>
+        </LI>
+        <LI style="padding-top: 0px; padding-bottom: 0px; ">
+          <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand URL Fetch"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand URL Fetch" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/java/urlfetch/">URL Fetch</A></DIV><UL id="2-sub-3" style="display: none; ">
+                <LI><A href="http://code.google.com/appengine/docs/java/urlfetch/overview.html">Overview</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/urlfetch/usingjavanet.html">Using java.net</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/urlfetch/package-summary.html">Low-level API</A></LI>
+
+          </UL>
+        </LI>
+        <LI style="padding-top: 0px; padding-bottom: 0px; ">
+          <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Mail"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Mail" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/java/mail/">Mail</A></DIV><UL id="2-sub-4" style="display: none; ">
+                <LI><A href="http://code.google.com/appengine/docs/java/mail/overview.html">Overview</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/mail/usingjavamail.html">Using JavaMail to Send Mail</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/mail/receiving.html">Receiving Mail</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/mail/package-summary.html">Low-level API</A></LI>
+
+          </UL>
+        </LI>
+        <LI style="padding-top: 0px; padding-bottom: 0px; ">
+          <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand XMPP"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand XMPP" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/java/xmpp/">XMPP</A></DIV><UL id="2-sub-5" style="display: none; ">
+                 <LI><A href="http://code.google.com/appengine/docs/java/xmpp/overview.html">Overview</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/xmpp/package-summary.html">API Reference</A></LI>
+
+          </UL>
+        </LI>
+        <LI style="padding-top: 0px; padding-bottom: 0px; ">
+          <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Images"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Images" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/java/images/">Images</A></DIV><UL id="2-sub-6" style="display: none; ">
+                <LI><A href="http://code.google.com/appengine/docs/java/images/overview.html">Overview</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/images/package-summary.html">API Reference</A></LI>
+
+          </UL>
+        </LI>
+        <LI style="padding-top: 0px; padding-bottom: 0px; ">
+          <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Google Accounts"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Google Accounts" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/java/users/"><B style="color:black;background-color:#ffff66">Google</B> Accounts</A></DIV><UL id="2-sub-7" style="display: none; ">
+                <LI><A href="http://code.google.com/appengine/docs/java/users/overview.html">Overview</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/users/package-summary.html">API Reference</A></LI>
+
+          </UL>
+        </LI>
+        <LI style="padding-top: 0px; padding-bottom: 0px; ">
+          <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Task Queues (Experimental)"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Task Queues (Experimental)" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/java/taskqueue/">Task Queues <SPAN class="exp-feat">(Experimental)</SPAN></A></DIV><UL id="2-sub-8" style="display: none; ">
+                 <LI><A href="http://code.google.com/appengine/docs/java/taskqueue/overview.html">Overview</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/labs/taskqueue/package-summary.html">API Reference</A></LI>
+
+          </UL>
+        </LI>
+        <LI style="padding-top: 0px; padding-bottom: 0px; ">
+          <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Blobstore (Experimental)"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Blobstore (Experimental)" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/java/blobstore/">Blobstore <SPAN class="exp-feat">(Experimental)</SPAN></A></DIV><UL id="2-sub-9" style="display: none; ">
+            <LI><A href="http://code.google.com/appengine/docs/java/blobstore/overview.html">Overview</A></LI>
+<LI style="padding-top: 0px; padding-bottom: 0px; ">
+  <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></A><SPAN class="tlw-title tlw-expanded">Reference</SPAN></DIV><UL id="2-sub-10" style="display: block; ">
+    <LI><A href="http://code.google.com/appengine/docs/java/javadoc/com/google/appengine/api/blobstore/package-summary.html">API Reference</A></LI>
+  </UL>
+</LI>
+
+          </UL>
+        </LI>
+      </UL>
+    </LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/javadoc/">Javadoc Reference</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/jrewhitelist.html">JRE Class White List</A></LI>
+    <LI style="padding-top: 0px; padding-bottom: 0px; ">
+      <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Configuration"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Configuration" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/java/config/">Configuration</A></DIV><UL id="2-sub-11" style="display: none; ">
+            <LI><A href="http://code.google.com/appengine/docs/java/config/webxml.html">Deployment Descriptor</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/config/appconfig.html"><B style="color:black;background-color:#a0ffff">App</B> Config</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/config/indexconfig.html">Index Config</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/config/cron.html">Scheduled Tasks</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/config/queue.html">Task Queue Config</A></LI>
+
+      </UL>
+    </LI>
+    <LI style="padding-top: 0px; padding-bottom: 0px; ">
+      <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Tools"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Tools" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/java/tools/">Tools</A></DIV><UL id="2-sub-12" style="display: none; ">
+            <LI><A href="http://code.google.com/appengine/docs/java/tools/devserver.html">Development Server</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/tools/uploadinganapp.html">Uploading and Managing</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/tools/eclipse.html"><B style="color:black;background-color:#ffff66">Google</B> Plugin for Eclipse</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/java/tools/ant.html">Using Apache Ant</A></LI>
+
+      </UL>
+    </LI>
+    <LI style="padding-top: 0px; padding-bottom: 0px; ">
+      <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand How-To"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand How-To" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/java/howto/">How-To</A></DIV><UL id="2-sub-13" style="display: none; ">
+              <LI><A href="http://code.google.com/appengine/docs/java/howto/unittesting.html">Unit Testing</A></LI>
+      <LI><A href="http://code.google.com/appengine/docs/java/howto/maintenance.html">Handling Scheduled Maintenance Periods</A></LI>
+
+      </UL>
+    </LI>
+
+    </UL>
+  </LI>
+</UL>
+<DIV class="line"></DIV>
+<UL class="treelist tlw-nested-only tlw-processed tlw-instance-3">
+  <LI><H2 class="tlw-ignore">Python</H2>
+    <UL>
+          <LI><A href="http://code.google.com/appengine/docs/python/overview.html">Overview</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/python/runtime.html">CGI Environment</A></LI>
+    <LI style="padding-top: 0px; padding-bottom: 0px; ">
+      <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Storing Data"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Storing Data" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/python/datastore/">Storing Data</A></DIV><UL id="3-sub-0" style="display: none; ">
+             <LI><A href="http://code.google.com/appengine/docs/python/datastore/overview.html">Overview</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/datastore/entitiesandmodels.html">Entities and Models</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/datastore/creatinggettinganddeletingdata.html">Creating, Getting and Deleting Data</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/datastore/keysandentitygroups.html">Keys and Entity Groups</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/datastore/queriesandindexes.html">Queries and Indexes</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/datastore/transactions.html">Transactions</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/datastore/typesandpropertyclasses.html">Types and Property Classes</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/datastore/gqlreference.html">GQL Reference</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/datastore/stats.html">Statistics</A></LI>
+
+     <LI style="padding-top: 0px; padding-bottom: 0px; ">
+       <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></A><SPAN class="tlw-title tlw-expanded">Reference</SPAN></DIV><UL id="3-sub-1" style="display: block; ">
+         <LI><A href="http://code.google.com/appengine/docs/python/datastore/modelclass.html">Model</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/datastore/expandoclass.html">Expando</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/datastore/polymodelclass.html">PolyModel</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/datastore/propertyclass.html">Property</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/datastore/queryclass.html">Query</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/datastore/gqlqueryclass.html">GqlQuery</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/datastore/keyclass.html">Key</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/datastore/functions.html">Functions</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/datastore/exceptions.html">Exceptions</A></LI>
+       </UL>
+     </LI>
+
+      </UL>
+    </LI>
+    <LI style="padding-top: 0px; padding-bottom: 0px; ">
+      <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Services"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Services" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/python/apis.html">Services</A></DIV><UL id="3-sub-2" style="display: none; ">
+        <LI style="padding-top: 0px; padding-bottom: 0px; ">
+          <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Memcache"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Memcache" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/python/memcache/">Memcache</A></DIV><UL id="3-sub-3" style="display: none; ">
+                 <LI><A href="http://code.google.com/appengine/docs/python/memcache/overview.html">Overview</A></LI>
+      <LI><A href="http://code.google.com/appengine/docs/python/memcache/usingmemcache.html">Using Memcache</A></LI>
+     <LI style="padding-top: 0px; padding-bottom: 0px; ">
+       <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></A><SPAN class="tlw-title tlw-expanded">Reference</SPAN></DIV><UL id="3-sub-4" style="display: block; ">
+         <LI><A href="http://code.google.com/appengine/docs/python/memcache/clientclass.html">Client</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/memcache/functions.html">Functions</A></LI>
+       </UL>
+     </LI>
+
+          </UL>
+        </LI>
+        <LI style="padding-top: 0px; padding-bottom: 0px; ">
+          <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand URL Fetch"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand URL Fetch" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/python/urlfetch/">URL Fetch</A></DIV><UL id="3-sub-5" style="display: none; ">
+                 <LI><A href="http://code.google.com/appengine/docs/python/urlfetch/overview.html">Overview</A></LI>
+     <LI style="padding-top: 0px; padding-bottom: 0px; ">
+       <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></A><SPAN class="tlw-title tlw-expanded">Reference</SPAN></DIV><UL id="3-sub-6" style="display: block; ">
+         <LI><A href="http://code.google.com/appengine/docs/python/urlfetch/fetchfunction.html">The fetch Function</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/urlfetch/asynchronousrequests.html">Asynchronous Requests</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/urlfetch/responseobjects.html">Response Objects</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/urlfetch/exceptions.html">Exceptions</A></LI>
+       </UL>
+     </LI>
+
+          </UL>
+        </LI>
+        <LI style="padding-top: 0px; padding-bottom: 0px; ">
+          <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Mail"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Mail" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/python/mail/">Mail</A></DIV><UL id="3-sub-7" style="display: none; ">
+                 <LI><A href="http://code.google.com/appengine/docs/python/mail/overview.html">Overview</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/mail/sendingmail.html">Sending Mail</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/mail/receivingmail.html">Receiving Mail</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/mail/attachments.html">Attachments</A></LI>
+     <LI style="padding-top: 0px; padding-bottom: 0px; ">
+       <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></A><SPAN class="tlw-title tlw-expanded">Reference</SPAN></DIV><UL id="3-sub-8" style="display: block; ">
+         <LI><A href="http://code.google.com/appengine/docs/python/mail/emailmessageclass.html">EmailMessage</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/mail/emailmessagefields.html">Message Fields</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/mail/functions.html">Functions</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/mail/exceptions.html">Exceptions</A></LI>
+       </UL>
+     </LI>
+
+          </UL>
+        </LI>
+        <LI style="padding-top: 0px; padding-bottom: 0px; ">
+          <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand XMPP"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand XMPP" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/python/xmpp/">XMPP</A></DIV><UL id="3-sub-9" style="display: none; ">
+                 <LI><A href="http://code.google.com/appengine/docs/python/xmpp/overview.html">Overview</A></LI>
+     <LI style="padding-top: 0px; padding-bottom: 0px; ">
+       <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></A><SPAN class="tlw-title tlw-expanded">Reference</SPAN></DIV><UL id="3-sub-10" style="display: block; ">
+         <LI><A href="http://code.google.com/appengine/docs/python/xmpp/functions.html">Functions</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/xmpp/messageclass.html">Message</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/xmpp/exceptions.html">Exceptions</A></LI>
+       </UL>
+     </LI>
+
+          </UL>
+        </LI>
+        <LI style="padding-top: 0px; padding-bottom: 0px; ">
+          <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Images"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Images" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/python/images/">Images</A></DIV><UL id="3-sub-11" style="display: none; ">
+                 <LI><A href="http://code.google.com/appengine/docs/python/images/overview.html">Overview</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/images/installingPIL.html">Installing PIL</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/images/usingimages.html">Using the Images API</A></LI>
+     <LI style="padding-top: 0px; padding-bottom: 0px; ">
+       <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></A><SPAN class="tlw-title tlw-expanded">Reference</SPAN></DIV><UL id="3-sub-12" style="display: block; ">
+         <LI><A href="http://code.google.com/appengine/docs/python/images/imageclass.html">Image</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/images/functions.html">Functions</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/images/exceptions.html">Exceptions</A></LI>
+       </UL>
+     </LI>
+
+          </UL>
+        </LI>
+        <LI style="padding-top: 0px; padding-bottom: 0px; ">
+          <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Google Accounts"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Google Accounts" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/python/users/"><B style="color:black;background-color:#ffff66">Google</B> Accounts</A></DIV><UL id="3-sub-13" style="display: none; ">
+                 <LI><A href="http://code.google.com/appengine/docs/python/users/overview.html">Overview</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/users/userobjects.html">User Objects</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/users/loginurls.html">Login URLs</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/users/adminusers.html">Admin Users</A></LI>
+
+     <LI style="padding-top: 0px; padding-bottom: 0px; ">
+       <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></A><SPAN class="tlw-title tlw-expanded">Reference</SPAN></DIV><UL id="3-sub-14" style="display: block; ">
+         <LI><A href="http://code.google.com/appengine/docs/python/users/userclass.html">User</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/users/functions.html">Functions</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/users/exceptions.html">Exceptions</A></LI>
+       </UL>
+     </LI>
+
+          </UL>
+        </LI>
+        <LI style="padding-top: 0px; padding-bottom: 0px; ">
+          <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Task Queues (Experimental)"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Task Queues (Experimental)" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/python/taskqueue/">Task Queues <SPAN class="exp-feat">(Experimental)</SPAN></A></DIV><UL id="3-sub-15" style="display: none; ">
+                 <LI><A href="http://code.google.com/appengine/docs/python/taskqueue/overview.html">Overview</A></LI>
+     <LI style="padding-top: 0px; padding-bottom: 0px; ">
+       <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></A><SPAN class="tlw-title tlw-expanded">Reference</SPAN></DIV><UL id="3-sub-16" style="display: block; ">
+         <LI><A href="http://code.google.com/appengine/docs/python/taskqueue/tasks.html">Task Class</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/taskqueue/queues.html">Queue Class</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/taskqueue/functions.html">Functions</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/taskqueue/exceptions.html">Exceptions</A></LI>
+       </UL>
+     </LI>
+
+          </UL>
+        </LI>
+        <LI style="padding-top: 0px; padding-bottom: 0px; ">
+          <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Blobstore (Experimental)"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Blobstore (Experimental)" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/python/blobstore/">Blobstore <SPAN class="exp-feat">(Experimental)</SPAN></A></DIV><UL id="3-sub-17" style="display: none; ">
+            <LI><A href="http://code.google.com/appengine/docs/python/blobstore/overview.html">Overview</A></LI>
+<LI style="padding-top: 0px; padding-bottom: 0px; ">
+  <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></A><SPAN class="tlw-title tlw-expanded">Reference</SPAN></DIV><UL id="3-sub-18" style="display: block; ">
+    <LI><A href="http://code.google.com/appengine/docs/python/blobstore/blobinfoclass.html">BlobInfo</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/python/blobstore/blobkeyclass.html">BlobKey</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/python/blobstore/functions.html">Functions</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/python/blobstore/exceptions.html">Exceptions</A></LI>
+  </UL>
+</LI>
+
+          </UL>
+        </LI>
+      </UL>
+    </LI>
+    <LI style="padding-top: 0px; padding-bottom: 0px; ">
+      <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Configuration"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Configuration" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/python/config/">Configuration</A></DIV><UL id="3-sub-19" style="display: none; ">
+            <LI><A href="http://code.google.com/appengine/docs/python/config/appconfig.html"><B style="color:black;background-color:#a0ffff">App</B> Config</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/python/config/indexconfig.html">Index Config</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/python/config/cron.html">Scheduled Tasks</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/python/config/queue.html">Task Queue Config</A></LI>
+
+      </UL>
+    </LI>
+    <LI style="padding-top: 0px; padding-bottom: 0px; ">
+      <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand Tools"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand Tools" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/python/tools/">Tools</A></DIV><UL id="3-sub-20" style="display: none; ">
+            <LI><A href="http://code.google.com/appengine/docs/python/tools/devserver.html">Development Server</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/python/tools/uploadinganapp.html">Uploading and Managing</A></LI>
+    <LI><A href="http://code.google.com/appengine/docs/python/tools/uploadingdata.html">Uploading and Downloading Data</A></LI>
+    <LI style="padding-top: 0px; padding-bottom: 0px; ">
+      <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand webapp Framework"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand webapp Framework" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/python/tools/webapp/">webapp Framework</A></DIV><UL id="3-sub-21" style="display: none; ">
+             <LI><A href="http://code.google.com/appengine/docs/python/tools/webapp/overview.html">Overview</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/tools/webapp/running.html">Running the Application</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/tools/webapp/requesthandlers.html">Request Handlers</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/tools/webapp/requestdata.html">Request Data</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/tools/webapp/buildingtheresponse.html">Building the Response</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/tools/webapp/redirects.html">Redirects, Headers and Status Codes</A></LI>
+     <LI><A href="http://code.google.com/appengine/docs/python/tools/webapp/blobstorehandlers.html">Blobstore Handlers</A></LI>
+
+     <LI style="padding-top: 0px; padding-bottom: 0px; ">
+       <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Collapse Reference"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Collapse Reference" class="tlw-control tlw-minus"></A><SPAN class="tlw-title tlw-expanded">Reference</SPAN></DIV><UL id="3-sub-22" style="display: block; ">
+         <LI><A href="http://code.google.com/appengine/docs/python/tools/webapp/requestclass.html">Request</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/tools/webapp/responseclass.html">Response</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/tools/webapp/requesthandlerclass.html">RequestHandler</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/tools/webapp/wsgiapplicationclass.html">WSGIApplication</A></LI>
+         <LI><A href="http://code.google.com/appengine/docs/python/tools/webapp/utilmodule.html">Utility Functions</A></LI>
+         
+       </UL>
+     </LI>
+
+      </UL>
+    </LI>
+    <LI><A href="http://code.google.com/appengine/docs/python/tools/libraries.html">Third-party Libraries</A></LI>
+
+      </UL>
+    </LI>
+    <LI style="padding-top: 0px; padding-bottom: 0px; ">
+      <DIV class="tlw-title tlw-branch"><A href="javascript:void(0)" class="tlw-control" title="Expand How-To"><IMG src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/cleardot.gif" alt="Expand How-To" class="tlw-control tlw-plus"></A><A href="http://code.google.com/appengine/docs/python/howto/">How-To</A></DIV><UL id="3-sub-23" style="display: none; ">
+              <LI><A href="http://code.google.com/appengine/docs/python/howto/usinggdataservices.html"><B style="color:black;background-color:#ffff66">Google</B> Data Services</A></LI>
+      <LI><A href="http://code.google.com/appengine/docs/python/howto/maintenance.html">Handling Scheduled Maintenance Periods</A></LI>
+
+      </UL>
+    </LI>
+
+    </UL>
+  </LI>
+</UL>
+<DIV class="line"></DIV>
+<UL class="treelist tlw-nested-only tlw-processed tlw-instance-4">
+  <LI><H2 class="tlw-ignore">Managing Your <B style="color:black;background-color:#a0ffff">App</B></H2>
+    <UL>
+      <LI><A href="http://code.google.com/appengine/docs/theadminconsole.html">The Admin Console</A></LI>
+      <LI><A href="http://code.google.com/appengine/docs/quotas.html">Quotas</A></LI>
+      <LI><A href="http://code.google.com/appengine/docs/billing.html">Billing</A></LI>
+    </UL>
+  </LI>
+</UL>
+<DIV class="line"></DIV>
+<UL class="treelist tlw-nested-only tlw-processed tlw-instance-5">
+  <LI><H2 class="tlw-ignore">Resources</H2>
+    <UL>
+      <LI><A href="http://code.google.com/appengine/kb/">FAQ</A></LI>
+      <LI><A href="http://code.google.com/appengine/articles/">Articles</A></LI>
+      <LI><A href="http://appengine-cookbook.appspot.com/">Cookbook</A></LI>
+      <LI><A href="http://appgallery.appspot.com/"><B style="color:black;background-color:#a0ffff">App</B> Gallery</A></LI>
+      <LI><A href="http://code.google.com/p/googleappengine/">SDK Code</A></LI>
+      <LI><A href="http://code.google.com/p/datanucleus-appengine/">JDO/JPA Code</A></LI>
+      <LI><A href="http://code.google.com/p/google-app-engine-samples/">Sample Apps Code</A></LI>
+      <LI>Launcher Code
+        <UL>
+          <LI><A href="http://code.google.com/p/google-appengine-mac-launcher/">Mac</A></LI>
+          <LI><A href="http://code.google.com/p/google-appengine-wx-launcher/">Windows/wx</A></LI>
+        </UL>
+      </LI>
+      <LI><A href="http://code.google.com/appengine/community.html">Discussion Groups</A></LI>
+    </UL>
+  </LI>
+</UL>
+<DIV class="line"></DIV>
+<UL class="treelist tlw-nested-only tlw-processed tlw-instance-6">
+  <LI><A href="http://code.google.com/appengine/docs/roadmap.html">Product Roadmap</A></LI>
+  <LI><A href="http://code.google.com/p/googleappengine/wiki/SdkReleaseNotes">Release Notes: Python</A></LI>
+  <LI><A href="http://code.google.com/p/googleappengine/wiki/SdkForJavaReleaseNotes">Release Notes: Java</A></LI>
+  <LI><A href="http://code.google.com/appengine/docs/revision_history.html">Revision History</A></LI>
+</UL>
+
+        <A class="hidden" href="http://code.google.com/appengine/articles/images.html#gc-topnav-anchor">More <B style="color:black;background-color:#ffff66">Google</B> <B style="color:black;background-color:#a0ffff">App</B> <B style="color:black;background-color:#99ff99">Engine</B> resource links</A>
+      </DIV>
+      
+      <A name="gc-pagecontent-anchor"></A>   
+      <DIV class="g-unit" id="gc-pagecontent" style="position: relative; ">
+        <SCRIPT type="text/javascript">CODESITE_docEarlyProcessing();</SCRIPT>
+        <H1 class="page_title">Serving Dynamic Images with <B style="color:black;background-color:#ffff66">Google</B> <B style="color:black;background-color:#a0ffff">App</B> <B style="color:black;background-color:#99ff99">Engine</B></H1>
+
+
+
+<I>Austin Chau, <B style="color:black;background-color:#ffff66">Google</B> Developer Programs</I><BR>
+<I>April 2008</I>
+<H2>Introduction</H2>
+<P>A picture is worth a thousand words. This is definitely true with today's web applications where images play a big part in reaching the audience. <B style="color:black;background-color:#ffff66">Google</B> <B style="color:black;background-color:#a0ffff">App</B> <B style="color:black;background-color:#99ff99">Engine</B> allows you to store and serve images quickly and easily through its datastore. The Python interface includes a data modeling API and GQL, our very own query language. In this short article, I will walk you through how to use the <A href="http://code.google.com/appengine/docs/python/datastore/">Datastore API</A> to store and serve images, using code from the <A href="http://muvmuv.appspot.com/">Movie Review sample application</A> as an example.</P>
+
+<H2>Storing Images in the Datastore</H2>
+<P>For starters, we would like to store each movie in the application as an object of the datastore. This is accomplished by defining a class that models a movie. The Movie class below defines all the attributes a Movie object would have. One of the defined attributes is "picture", which represents the binary data of a jpeg image for that movie. To handle the images properly, we must store them as Blobs, therefore we need to declare the picture as a <A href="http://code.google.com/appengine/docs/python/datastore/typesandpropertyclasses.html#BlobProperty">BlobProperty</A>.</P>
+<PRE class="prettyprint"><SPAN class="kwd">class</SPAN><SPAN class="pln"> </SPAN><SPAN class="typ">Movie</SPAN><SPAN class="pun">(</SPAN><SPAN class="pln">db</SPAN><SPAN class="pun">.</SPAN><SPAN class="typ">Model</SPAN><SPAN class="pun">)</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; title </SPAN><SPAN class="pun">=</SPAN><SPAN class="pln"> db</SPAN><SPAN class="pun">.</SPAN><SPAN class="typ">StringProperty</SPAN><SPAN class="pun">()</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; picture </SPAN><SPAN class="pun">=</SPAN><SPAN class="pln"> db</SPAN><SPAN class="pun">.</SPAN><SPAN class="typ">BlobProperty</SPAN><SPAN class="pun">(</SPAN><SPAN class="kwd">default</SPAN><SPAN class="pun">=</SPAN><SPAN class="kwd">None</SPAN><SPAN class="pun">)</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; </SPAN><SPAN class="pun">...</SPAN></PRE>
+<P>Now that we have the model defined, we can start using it to store movie objects. We can get movie data from a remote source and feed it into the application. To do this, use the <B style="color:black;background-color:#ffff66">Google</B> <B style="color:black;background-color:#a0ffff">App</B> Engine's <A href="http://code.google.com/appengine/docs/python/urlfetch/">URL Fetch API</A> which retrieves data from both HTTP and HTTPS URLs. The urlfetch.Fetch() method can be used to fetch the binary content of a remote image. We simply need to supply the URL of the image as the argument.</P>
+<P>Next, create a <B style="color:black;background-color:#ff9999">Blob</B> object by passing the content attribute of the fetched result (a string representation of the binary image) as the argument and assign it to the picture attribute of a Movie object. The <CODE>put()</CODE> method is then called to commit the change to the datastore.</P>
+<PRE class="prettyprint"><SPAN class="pln">movie </SPAN><SPAN class="pun">=</SPAN><SPAN class="pln"> </SPAN><SPAN class="typ">Movie</SPAN><SPAN class="pun">()</SPAN><SPAN class="pln"><BR></SPAN><SPAN class="pun">...</SPAN><SPAN class="pln"><BR>movie</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">picture </SPAN><SPAN class="pun">=</SPAN><SPAN class="pln"> db</SPAN><SPAN class="pun">.</SPAN><B style="color:black;background-color:#ff9999"><SPAN class="typ">Blob</SPAN></B><SPAN class="pun">(</SPAN><SPAN class="pln">urlfetch</SPAN><SPAN class="pun">.</SPAN><SPAN class="typ">Fetch</SPAN><SPAN class="pun">(</SPAN><SPAN class="pln">picture_url</SPAN><SPAN class="pun">).</SPAN><SPAN class="pln">content</SPAN><SPAN class="pun">)</SPAN><SPAN class="pln"><BR>movie</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">put</SPAN><SPAN class="pun">()</SPAN></PRE>
+
+<H2>Retrieving &amp; Displaying Images</H2>
+<P>Now that the objects are populated in our Movie datastore, let's set up a request handler to retrieve them dynamically from the datastore and render the objects back to the browser as images.</P>
+<P>First, we create a GetImage class to define the GET request handler. The first thing the request handler does is retrieve the value of 'title' from the URL parameter. Then it retrieves the Movie object that matches the title from the datastore by calling the <CODE>getMovie()</CODE> method.</P>
+<P>Once we have the reference to the Movie object, we can access its "picture" attribute. In order for the browser to properly render the image, we set the <CODE>HTTP Content-Type</CODE> header as <CODE>'image/jpeg'</CODE>.</P>
+<PRE class="prettyprint"><SPAN class="kwd">class</SPAN><SPAN class="pln"> </SPAN><SPAN class="typ">GetImage</SPAN><SPAN class="pun">(</SPAN><SPAN class="pln">webapp</SPAN><SPAN class="pun">.</SPAN><SPAN class="typ">RequestHandler</SPAN><SPAN class="pun">):</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; </SPAN><SPAN class="kwd">def</SPAN><SPAN class="pln"> </SPAN><SPAN class="kwd">get</SPAN><SPAN class="pun">(</SPAN><SPAN class="kwd">self</SPAN><SPAN class="pun">):</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; title </SPAN><SPAN class="pun">=</SPAN><SPAN class="pln"> </SPAN><SPAN class="kwd">self</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">request</SPAN><SPAN class="pun">.</SPAN><SPAN class="kwd">get</SPAN><SPAN class="pun">(</SPAN><SPAN class="str">'title'</SPAN><SPAN class="pun">)</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; movie </SPAN><SPAN class="pun">=</SPAN><SPAN class="pln"> getMovie</SPAN><SPAN class="pun">(</SPAN><SPAN class="pln">title</SPAN><SPAN class="pun">)</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="kwd">if</SPAN><SPAN class="pln"> </SPAN><SPAN class="pun">(</SPAN><SPAN class="pln">movie </SPAN><SPAN class="kwd">and</SPAN><SPAN class="pln"> movie</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">picture</SPAN><SPAN class="pun">):</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="kwd">self</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">response</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">headers</SPAN><SPAN class="pun">[</SPAN><SPAN class="str">'Content-Type'</SPAN><SPAN class="pun">]</SPAN><SPAN class="pln"> </SPAN><SPAN class="pun">=</SPAN><SPAN class="pln"> </SPAN><SPAN class="str">'image/jpeg'</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="kwd">self</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">response</SPAN><SPAN class="pun">.</SPAN><SPAN class="kwd">out</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">write</SPAN><SPAN class="pun">(</SPAN><SPAN class="pln">movie</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">picture</SPAN><SPAN class="pun">)</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="kwd">else</SPAN><SPAN class="pun">:</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="kwd">self</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">redirect</SPAN><SPAN class="pun">(</SPAN><SPAN class="str">'/static/noimage.jpg'</SPAN><SPAN class="pun">)</SPAN></PRE>
+<P>The <CODE>getMovie()</CODE> method contains a simple GQL query that retrieves a movie object that matches the title.</P>
+<PRE class="prettyprint"><SPAN class="kwd">def</SPAN><SPAN class="pln"> getMovie</SPAN><SPAN class="pun">(</SPAN><SPAN class="pln">title</SPAN><SPAN class="pun">):</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; result </SPAN><SPAN class="pun">=</SPAN><SPAN class="pln"> db</SPAN><SPAN class="pun">.</SPAN><SPAN class="typ">GqlQuery</SPAN><SPAN class="pun">(</SPAN><SPAN class="str">"SELECT * FROM Movie WHERE title = :1 LIMIT 1"</SPAN><SPAN class="pun">,</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; title</SPAN><SPAN class="pun">).</SPAN><SPAN class="pln">fetch</SPAN><SPAN class="pun">(</SPAN><SPAN class="lit">1</SPAN><SPAN class="pun">)</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; </SPAN><SPAN class="kwd">if</SPAN><SPAN class="pln"> </SPAN><SPAN class="pun">(</SPAN><SPAN class="pln">len</SPAN><SPAN class="pun">(</SPAN><SPAN class="pln">result</SPAN><SPAN class="pun">)</SPAN><SPAN class="pln"> </SPAN><SPAN class="pun">&gt;</SPAN><SPAN class="pln"> </SPAN><SPAN class="lit">0</SPAN><SPAN class="pun">):</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="kwd">return</SPAN><SPAN class="pln"> result</SPAN><SPAN class="pun">[</SPAN><SPAN class="lit">0</SPAN><SPAN class="pun">]</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; </SPAN><SPAN class="kwd">else</SPAN><SPAN class="pun">:</SPAN><SPAN class="pln"><BR>&nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="kwd">return</SPAN><SPAN class="pln"> </SPAN><SPAN class="kwd">None</SPAN></PRE>
+<P>To make it easy to access the images of the movies in the application, we can map the <CODE>GetImage</CODE> class to the URL path <CODE>'/image'</CODE>. Here, we have chosen to use the webapp module to handle the <CODE>GET</CODE> request:</P>
+<PRE class="prettyprint"><SPAN class="pln">apps_binding </SPAN><SPAN class="pun">=</SPAN><SPAN class="pln"> </SPAN><SPAN class="pun">[]</SPAN><SPAN class="pln"><BR></SPAN><SPAN class="pun">...</SPAN><SPAN class="pln"><BR>apps_binding</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">append</SPAN><SPAN class="pun">((</SPAN><SPAN class="str">'/image'</SPAN><SPAN class="pun">,</SPAN><SPAN class="pln"> </SPAN><SPAN class="typ">GetImage</SPAN><SPAN class="pun">))</SPAN><SPAN class="pln"><BR>application </SPAN><SPAN class="pun">=</SPAN><SPAN class="pln"> webapp</SPAN><SPAN class="pun">.</SPAN><SPAN class="typ">WSGIApplication</SPAN><SPAN class="pun">(</SPAN><SPAN class="pln">apps_binding</SPAN><SPAN class="pun">,</SPAN><SPAN class="pln"> debug</SPAN><SPAN class="pun">=</SPAN><SPAN class="kwd">True</SPAN><SPAN class="pun">)</SPAN><SPAN class="pln"><BR>wsgiref</SPAN><SPAN class="pun">.</SPAN><SPAN class="pln">handlers</SPAN><SPAN class="pun">.</SPAN><SPAN class="typ">CGIHandler</SPAN><SPAN class="pun">().</SPAN><SPAN class="pln">run</SPAN><SPAN class="pun">(</SPAN><SPAN class="pln">application</SPAN><SPAN class="pun">)</SPAN></PRE>
+<P>Now when a visitor visits the URL - http://mydomain.com/image?title=matrix, an image for the movie "matrix" is returned to the browser.</P>
+
+<H2>Resources</H2>
+<P>We have just shown you how you can easily serve images from your <B style="color:black;background-color:#ffff66">Google</B> <B style="color:black;background-color:#a0ffff">App</B> Engine's datastore. Now it's time for you to get your hands dirty with code!
+Check out the resources below to get started on building your next great <B style="color:black;background-color:#a0ffff">app</B>:</P>
+<UL>
+<LI><A href="http://code.google.com/p/google-app-engine-samples">Complete source code of the Movie Review <B style="color:black;background-color:#a0ffff">App</B></A></LI>
+<LI><A href="http://code.google.com/appengine/docs/python/datastore/">Datastore API Reference</A></LI>
+<LI><A href="http://groups.google.com/group/google-appengine"><B style="color:black;background-color:#ffff66">Google</B> <B style="color:black;background-color:#a0ffff">App</B> <B style="color:black;background-color:#99ff99">Engine</B> Developer's Forum</A></LI>
+</UL>
+
+   
+      <DIV id="gc-collapsible" style="height: 1510px; " class=""></DIV></DIV><!-- end gc-pagecontent -->
+   </DIV><!-- end gooey wrapper -->
+
+    </DIV> <!-- end codesite content -->
+
+
+<DIV id="gc-footer" dir="ltr">
+  <DIV class="text">
+    
+      <DIV class="notice"><DIV id="notice" style="text-align: center; border: 1em 0em 1em 0em">
+  Except as otherwise <A href="http://code.google.com/policies.html#restrictions">noted</A>,
+  the content of this page is licensed under the <A rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons
+  Attribution 3.0 License</A>, and code samples are licensed under the
+  <A rel="license" href="http://www.apache.org/licenses/LICENSE-2.0">Apache
+  2.0 License</A>.
+<!-- <rdf:RDF xmlns="http://web.resource.org/cc/" 
+              xmlns:dc="http://purl.org/dc/elements/1.1/"
+              xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <Work rdf:about="">
+    <license rdf:resource="http://creativecommons.org/licenses/by/3.0/" />
+  </Work>
+  <License rdf:about="http://creativecommons.org/licenses/by/3.0/">
+    <permits rdf:resource="http://web.resource.org/cc/Reproduction"/>
+    <permits rdf:resource="http://web.resource.org/cc/Distribution"/>
+    <requires rdf:resource="http://web.resource.org/cc/Notice"/>
+    <requires rdf:resource="http://web.resource.org/cc/Attribution"/>
+    <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks"/>
+  </License>
+</rdf:RDF> -->
+</DIV>
+Java is a registered trademark of Sun Microsystems, Inc.</DIV>
+    
+    ©2010 <B style="color:black;background-color:#ffff66">Google</B> -
+    <A href="http://code.google.com/">Code Home</A> -
+    <A href="http://code.google.com/terms.html">Terms of Service</A> -
+    <A href="http://code.google.com/privacy.html">Privacy Policy</A> -
+    <A href="http://code.google.com/more/">Site Directory</A>
+    <BR> <BR>
+    <B style="color:black;background-color:#ffff66">Google</B> Code offered in:
+    <A href="http://code.google.com/intl/en/">English</A> -
+    <A href="http://code.google.com/intl/es/">Español</A> -
+    <A href="http://code.google.com/intl/ja/">日本語</A> -
+    <A href="http://code.google.com/intl/ko/">한국어</A> -
+    <A href="http://code.google.com/intl/pt-BR/">Português</A> -
+    <A href="http://code.google.com/intl/ru/">Pусский</A> -
+    <A href="http://code.google.com/intl/zh-CN/">中文(简体)</A> -
+    <A href="http://code.google.com/intl/zh-TW/">中文(繁體)</A>
+  </DIV>
+</DIV><!-- end gc-footer -->
+
+</DIV><!-- end gc-containter -->
+
+<SCRIPT type="text/javascript">CODESITE_CSITimer['load'].tick('ats');</SCRIPT>
+<SCRIPT src="./Serving Dynamic Images with Google App Engine - Google App Engine - Google Code_files/codesite_tail.pack.04102009.js" type="text/javascript"></SCRIPT>
+
+
+
+
+
+
+
+
+  
+
+
+
+</DIV><DIV class="menuDiv instance0" id="menuDiv-projects-dropdown" style="position: absolute; top: 19px; left: 1025px; display: none; "><DIV class="menuCategory controls first"><A class="menuItem" style="display: block; " href="https://www.google.com/accounts/Login?continue=http%3A%2F%2F203.208.39.132%2Fsearch%3Fq%3Dcache%3AMVlVxDfHfPMJ%3Acode.google.com%2Fappengine%2Farticles%2Fimages.html%2Bgoogle%2Bapp%2Bengine%2Bblob%26cd%3D1%26hl%3Dzh-CN%26ct%3Dclnk%26gl%3Dcn%26st_usg%3DALhdy2_qiS5kML8mYv-UjRiGcTvrJE7m9A&amp;followup=http%3A%2F%2F203.208.39.132%2Fsearch%3Fq%3Dcache%3AMVlVxDfHfPMJ%3Acode.google.com%2Fappengine%2Farticles%2Fimages.html%2Bgoogle%2Bapp%2Bengine%2Bblob%26cd%3D1%26hl%3Dzh-CN%26ct%3Dclnk%26gl%3Dcn%26st_usg%3DALhdy2_qiS5kML8mYv-UjRiGcTvrJE7m9A">Sign in to see your favorites</A><HR class="menuSeparator"><A class="menuItem" style="display: block; " href="http://code.google.com/more/">Find developer products...</A><A class="menuItem" style="display: block; " href="http://code.google.com/hosting/">Find open source projects...</A></DIV></DIV><DIV class="menuDiv instance1" id="menuDiv-lang-dropdown" style="position: absolute; top: 19px; left: 1121px; width: 175px; display: none; "><DIV class="menuCategory default first"><A class="menuItem" style="display: block; " href="http://203.208.39.132/intl/en/search?q=cache:MVlVxDfHfPMJ:code.google.com/appengine/articles/images.html+google+app+engine+blob&cd=1&hl=zh-CN&ct=clnk&gl=cn&st_usg=ALhdy2_qiS5kML8mYv-UjRiGcTvrJE7m9A">English</A><A class="menuItem" style="display: block; " href="http://203.208.39.132/intl/es/search?q=cache:MVlVxDfHfPMJ:code.google.com/appengine/articles/images.html+google+app+engine+blob&cd=1&hl=zh-CN&ct=clnk&gl=cn&st_usg=ALhdy2_qiS5kML8mYv-UjRiGcTvrJE7m9A">Español</A><A class="menuItem" style="display: block; " href="http://203.208.39.132/intl/ja/search?q=cache:MVlVxDfHfPMJ:code.google.com/appengine/articles/images.html+google+app+engine+blob&cd=1&hl=zh-CN&ct=clnk&gl=cn&st_usg=ALhdy2_qiS5kML8mYv-UjRiGcTvrJE7m9A">日本語</A><A class="menuItem" style="display: block; " href="http://203.208.39.132/intl/ko/search?q=cache:MVlVxDfHfPMJ:code.google.com/appengine/articles/images.html+google+app+engine+blob&cd=1&hl=zh-CN&ct=clnk&gl=cn&st_usg=ALhdy2_qiS5kML8mYv-UjRiGcTvrJE7m9A">한국어</A><A class="menuItem" style="display: block; " href="http://203.208.39.132/intl/pt-BR/search?q=cache:MVlVxDfHfPMJ:code.google.com/appengine/articles/images.html+google+app+engine+blob&cd=1&hl=zh-CN&ct=clnk&gl=cn&st_usg=ALhdy2_qiS5kML8mYv-UjRiGcTvrJE7m9A">Português (Brasil)</A><A class="menuItem" style="display: block; " href="http://203.208.39.132/intl/ru/search?q=cache:MVlVxDfHfPMJ:code.google.com/appengine/articles/images.html+google+app+engine+blob&cd=1&hl=zh-CN&ct=clnk&gl=cn&st_usg=ALhdy2_qiS5kML8mYv-UjRiGcTvrJE7m9A">Pусский</A><A class="menuItem" style="display: block; " href="http://203.208.39.132/intl/zh-CN/search?q=cache:MVlVxDfHfPMJ:code.google.com/appengine/articles/images.html+google+app+engine+blob&cd=1&hl=zh-CN&ct=clnk&gl=cn&st_usg=ALhdy2_qiS5kML8mYv-UjRiGcTvrJE7m9A">中文 (简体)</A><A class="menuItem" style="display: block; " href="http://203.208.39.132/intl/zh-TW/search?q=cache:MVlVxDfHfPMJ:code.google.com/appengine/articles/images.html+google+app+engine+blob&cd=1&hl=zh-CN&ct=clnk&gl=cn&st_usg=ALhdy2_qiS5kML8mYv-UjRiGcTvrJE7m9A">中文 (繁體)</A></DIV></DIV><DIV id="gc-collapsible-arrow" class="" style="left: 182px; top: 821px; display: none; "></DIV><DIV id="cs-searchresults" style="left: 181px; top: 167px; width: 345px; "><DIV id="cs-recommended">Suggestions</DIV><DIV id="searchResult1"></DIV><DIV id="searchResult2"></DIV><DIV id="searchResult3"></DIV><DIV id="searchResult4"></DIV><DIV id="searchResult5"></DIV><DIV id="searchResult6"></DIV><DIV id="searchResult7"></DIV></DIV></BODY></HTML>

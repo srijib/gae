@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>WP7 Push Notification Test</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<link href="static/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="tasks">
+    <h2>周期存活检测项目列表</h2>
+    <p>开启检测的项目将会每三分钟发送一次Toast请求</p>
+    <table class="tasktable">
+    <tr><th>task name</th><th>state</th><th>change state</th><th>test</th><!--<th>delete</th>--><th>add time</th><th>detail</th></tr>
+    {%for task in tasks%}
+    <tr>
+        <td>{{task.name}}</td>
+        <td>{{task.state}}</td>
+        <td><a href="{{task.toggle_link}}">{{task.toggle_link_str}}</a></td>
+        <td><a href="{{task.test_link}}" target="_blank">test now</a></td>
+        <!--<td><a href="{{task.delete_link}}">delete task</a></td>-->
+        <td>{{task.time}}</td>
+        <td><a href="{{task.detail_link}}" target="_blank">view</a></td>
+    </tr>
+    {%endfor%}
+    </table>
+</div>
+<p><a href="/add">添加新的存活测试</a></p>
+<p><a href="/">返回主页</a></p>
+</body>
+</html>

@@ -1,0 +1,92 @@
+POST /getscore.html HTTP/1.1
+Accept: */*
+Accept-Language: zh-cn
+Referer: http://cet.99sushe.com/
+Content-Type: application/x-www-form-urlencoded;charset=gb2312
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; QQDownload 618; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; CIBA)
+Host: cet.99sushe.com
+Content-Length: 33
+Connection: Keep-Alive
+Cache-Control: no-cache
+Cookie: cnzz_a30023677=16; sin30023677=; rtime30023677=0; ltime30023677=1267603711484; cnzz_eid30023677=19072398-1265091603-http%3A//www.baidu.com/s%3Fwd%3D%25CB%25C4%25BC%25B6%25B3%25C9%25BC%25A8%25B2%25E9%25D1%25AF%26o
+
+id=310020092126922&vc=novcversion
+HTTP/1.1 200 OK
+Date: Wed, 03 Mar 2010 08:07:56 GMT
+Server: Apache/2.2.6 (Unix)
+Content-Length: 37
+Keep-Alive: timeout=5, max=3000
+Connection: Keep-Alive
+Content-Type: text/html; charset=GB2312
+
+154,135,47,89,425,............,......
+
+
+
+
+
+
+
+
+
+
+
+
+POST /getscore.html HTTP/1.1
+Content-Length: 18
+Accept-Encoding: gzip
+User-Agent: AppEngine-Google; (+http://code.google.com/appengine)
+Host: cet.99sushe.com
+Referer: http://cet.99sushe.com/
+Content-Type: application/x-www-form-urlencoded
+
+id=310020092126922
+HTTP/1.1 200 OK
+Date: Wed, 03 Mar 2010 08:15:33 GMT
+Server: Apache/2.2.6 (Unix)
+Content-Length: 1
+Content-Type: text/html; charset=GB2312
+
+0
+
+
+
+
+
+
+
+
+
+
+
+POST /getscore.html HTTP/1.1
+Host: cet.99sushe.com
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/532.9 (KHTML, like Gecko) Chrome/5.0.317.2 Safari/532.9
+Referer: http://cet.99sushe.com/
+Content-Length: 33
+Origin: http://cet.99sushe.com
+Content-Type: application/x-www-form-urlencoded;charset=gb2312
+Accept: */*
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: zh-CN,zh;q=0.8
+Accept-Charset: GBK,utf-8;q=0.7,*;q=0.3
+Cookie: cnzz_a30023677=5; sin30023677=; rtime30023677=1; ltime30023677=1267604227557; cnzz_eid30023677=68946857-1265091603-http%3A//www.google.cn/search%3Fhl%3Dzh-CN%26source%3Dhp%26q%3D4%25E7%25BA%25A7+%25E6%25
+
+id=310020092126922&vc=novcversion
+HTTP/1.1 200 OK
+Date: Wed, 03 Mar 2010 08:16:50 GMT
+Server: Apache/2.2.6 (Unix)
+Content-Length: 37
+Keep-Alive: timeout=5, max=3000
+Connection: Keep-Alive
+Content-Type: text/html; charset=GB2312
+
+154,135,47,89,425,............
+
+
+
+
+
+

@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>Window Media Player</title>
+	<style type="text/css">
+	
+<!--
+#mp {
+	background-image: url('images/bg.jpg');
+	height: 480px;
+	width: 640px;
+	overflow: visible;
+	top:100px;
+	left:100px;
+	position: absolute;
+	visibility: visible;
+}
+#mp #mb{
+	position: relative;
+	top: 49px;
+	left:3px;
+}
+#mp #mb #wmp,#mp #mb{
+	width:636px;
+	height:366px;
+}
+#mp #mc{
+	position: relative;
+	top:55px;
+}
+#mp #mc .but{
+	float:left;
+	position: relative;
+	width:42px;
+	height:42px;
+	background-position: center center;
+}
+#mp #mc #stop{
+	background:url('images/stop.gif');
+	left:130px;
+}
+#mp #mc #unnext{
+	background:url('images/unnext.gif');
+	left:140px;
+}
+#mp #mc #unfast{
+	background:url('images/unfast.gif');
+	left:150px;
+}
+#mp #mc #fast{
+	background:url('images/fast.gif');
+	left:168px;
+}
+#mp #mc #next{
+	background:url('images/next.gif');
+	left:178px;
+}
+#mp #mc #sound{
+	background:url('images/sound.gif');
+	left:188px;
+}
+#mp #mc #open{
+	background:url('images/open.gif');
+	left:210px;
+}
+#mp #mc #web{
+	background:url('images/web.gif');
+	left:146px;
+	width:80px;
+	height:54px;
+	top:-7px;
+}
+#mp #mc #info,#mp #mc #help{
+	top:-426px;
+	width:32px;
+	height:32px;
+}
+#mp #mc #help{
+	top:-424px;
+	background:url('images/help.gif');
+	left:210px;
+}
+#mp #mc #info{
+	background:url('images/info.gif');
+	left:220px;
+}
+#mp #mc #play{
+	float:left;
+	left:159px;
+	top:-7px;
+	width:54px;
+	height:54px;
+	background: url('images/play.gif');
+}
+#mp #sat{
+	position: relative;
+	top: 49px;
+	left:211px;
+	width:320px;
+	height:6px;
+	background:url('images/bar.gif');
+}
+#mp #tme{
+	position: relative;
+	top: 36px;
+	left:550px;
+	width:320px;
+	height:6px;
+}
+#mp #tme input,#mp #tme span{
+	border: none;
+	color:#FFF;
+}
+#mp #tmp input{
+	background-image:url('images/bg.jpg');
+	background-position: 100px 15px;
+}
+#mp #inf{
+	position:absolute;
+	left:10px;
+	top:440px;
+	width:120px;
+	height:40px;
+	overflow: hidden;
+	vertical-align: top;
+	color: #666666;
+	font-size: 14px;
+}
+#mp #inf div{
+	width:1000px;
+	overflow: hidden;
+}
+-->
+
+    </style>
+<script language="javascript">
+<!--
+function $(id){
+	return document.getElementById(id);
+}
+function WMP(set){
+	switch(set){	
+		case "stop":wmp.controls.stop();WMP_Play_Sataus(set);break;
+		case "next":wmp.controls.next();WMP_Play_Sataus(set);break;
+		case "unnext":wmp.controls.previous();WMP_Play_Sataus(set);break;
+		case "fast":wmp.controls.fastForward();WMP_Play_Sataus(set);break;
+		case "unfast":wmp.controls.fastReverse();WMP_Play_Sataus(set);break;
+		case "play":WMP_Play();break;
+		case "sound":WMP_Set("Sound","设置声音");break;
+		case "open":WMP_Set("File","打开文件");WMP_Play_Sataus(set);break;
+		case "info":WMP_Set("Info","媒体信息");break;
+		case "help":WMP_Set("Help","帮助菜单");break;
+		default:alert("没有找到相关指令");
+	}
+}
+function WST(set){
+	var WS="";
+	switch(set){
+		case "stop":WS="停止";break;
+		case "next":WS="下一曲";break;
+		case "unnext":WS="上一曲";break;
+		case "fast":WS="快进";break;
+		case "unfast":WS="快退";break;
+		case "play":WS=$(set).playstatus=="1"?"暂停":"播放";break;
+		case "sound":WS="声音设置";break;
+		case "open":WS="打开文件";break;
+		case "info":WS="媒体信息";break;
+		case "help":WS="帮助菜单";break;
+		case "web":WS="访问作者主页";break;
+		default:alert("没有找到相关指令");
+	}
+	window.status=WS;
+}
+function WMP_Play(){
+	var pa=$("play");
+	with(pa){
+		if(playstatus=="0"){
+		wmp.controls.play();
+		WMP_Play_Sataus("play");
+		}else{
+		wmp.controls.pause();
+		WMP_Play_Sataus("pause");
+		}
+	}
+}
+function WMP_Play_Sataus(mystatus){
+	var pa=$("play");
+	if(mystatus=="play"){
+		pa.style.background="url('images/pause.gif')";
+		pa.playstatus="1";
+	}else{
+		pa.style.background="url('images/play.gif')";
+		pa.playstatus="0";
+	}
+}
+function WMP_Set(id,title){
+	var wnd=window.open("options.html?"+id,"Set","locationbar=0");
+	wnd.document.title=title;
+	if(wnd.opener==false)
+		wnd.opener==self();
+}
+function WMP_Info(){
+	var ts=20; //设置2秒更新一次信息
+	var pi=$("inf").getElementsByTagName("span");
+	//var ptme=$("tme").getElementsByTagName("input")[0];
+	var ptme=$("tme").getElementsByTagName("span")[0];
+	var pimg=$("sat").getElementsByTagName("img")[0];
+	if(wmp.URL){
+		if(wmp.currentMedia.durationString!="00:00"){
+			pimg.width=wmp.controls.currentPosition/wmp.currentMedia.getItemInfo("Duration")*320;
+			var tmp=wmp.controls.currentPositionString==false?"00:00":wmp.controls.currentPositionString;
+			tmp+="/"+wmp.currentMedia.durationString;
+			//ptme.value=tmp;
+			ptme.innerText=tmp;
+			with(pi[0]){
+				timtag=eval(timtag)+1;
+				if(timtag>ts){
+					timtag=0;
+					showtag=eval(showtag)+1;
+					if(showtag>2)showtag=0;
+				}
+				var pi00=new Array("Author","Title","Copyright");
+				var pi01=new Array("艺术家","标题","版权")
+				innerText=pi01[showtag]+":"+wmp.currentMedia.getItemInfo(pi00[showtag]);
+			}
+			with(pi[1]){
+				timtag=eval(timtag)+1;
+				if(timtag>ts*2){
+					timtag=0;
+					showtag=eval(showtag)+1;
+					if(showtag>1)showtag=0;
+				}
+					innerText=showtag==0?"下载："+wmp.network.downloadProgress+"%":"缓冲："+wmp.network.bufferingProgress+"%";
+			}
+		}
+	}
+	setTimeout("WMP_Info();",100);
+}
+setTimeout("WMP_Info();",1000);
+-->
+</script>
+</head>
+
+<body>
+	<div id="mp">
+		<div id="sat"><img src="images/status.gif" width="320" height="6" /></div>
+		<div id="tme">
+			<!--
+			<input type="text" value="88:88/88:88" size="10" readonly="readonly"/>
+			-->
+			<span>88:88|88:88</span>
+		</div>
+		<div id="mb">
+			<object classid="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6" type="application/x-oleobject" id="wmp">
+				<param name="uiMode" value="None" />
+				<param name="enableContextMenu" value="false" />
+				<param name="volume" value="10" />
+			</object>
+		</div>
+		<div id="mc">
+			<div id="stop"   class="but" onclick="WMP(this.id);" onmouseover="WST(this.id);" onmouseout="window.status='';"></div>
+			<div id="unnext" class="but" onclick="WMP(this.id);" onmouseover="WST(this.id);" onmouseout="window.status='';"></div>
+			<div id="unfast" class="but" onclick="WMP(this.id);" onmouseover="WST(this.id);" onmouseout="window.status='';"></div>
+			<div id="play"   class="but" onclick="WMP(this.id);" onmouseover="WST(this.id);" onmouseout="window.status='';" playstatus="0"></div>
+			<div id="fast"   class="but" onclick="WMP(this.id);" onmouseover="WST(this.id);" onmouseout="window.status='';"></div>
+			<div id="next"   class="but" onclick="WMP(this.id);" onmouseover="WST(this.id);" onmouseout="window.status='';"></div>
+			<div id="sound"  class="but" onclick="WMP(this.id);" onmouseover="WST(this.id);" onmouseout="window.status='';"></div>
+			<div id="open"   class="but" onclick="WMP(this.id);" onmouseover="WST(this.id);" onmouseout="window.status='';"></div>
+			<div id="help"   class="but" onclick="WMP(this.id);" onmouseover="WST(this.id);" onmouseout="window.status='';"></div>
+			<div id="info"   class="but" onclick="WMP(this.id);" onmouseover="WST(this.id);" onmouseout="window.status='';"></div>
+			<div id="web"    class="but" onclick="location.href='http://www.miaoqiyuan.cn'"  onmouseover="WST(this.id);" onmouseout="window.status='';"></div>
+		</div>
+		<div id="inf">
+			<div><span showtag="0" timtag="0">标题:没有载入文件</span></div>
+			<div><span showtag="0" timtag="0">已下载:888%</span></div>
+		</div>
+</div>
+</body>
+</html>

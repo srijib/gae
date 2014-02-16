@@ -1,0 +1,4 @@
+cron:
+- description: push notification testing task
+  url: /cron
+  schedule: every 3 minutes

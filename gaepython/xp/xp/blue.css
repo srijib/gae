@@ -1,0 +1,20 @@
+body{font-family:Verdana,宋体;background-color: #336699;font-size:9pt;color:#ffffff;cursor:default}
+table,TD,DIV{font-family:宋体;font-size:9pt;cursor:default}
+li{padding:2px}
+HR{width:95%;border: 1px inset #A6C1DF}
+#beta{font-family:Verdana;color: #FFFFFF}
+.overout{}
+.out{}
+.over { color: #FFFFFF; background-color: #44A2FF }
+A{text-decoration: none;color:#ffffff} 
+.up1{ background-color: #3A6EA5; border-left: 1 solid #A6C1DF;border-right: 1 solid #002200; border-top: 1 solid #A6C1DF; border-bottom: 1 solid #002200 }
+.up{ background-color: #3A6EA5; border-left: 2 solid #A6C1DF;border-right: 2 solid #002200; border-top: 2 solid #A6C1DF; border-bottom: 2 solid #002200 }
+.down1{ background-color: #3A6EA5; border-left: 1 solid #002200;border-right: 1 solid #A6C1DF; border-top: 1 solid #002200; border-bottom: 1 solid #A6C1DF }
+.down{ background-color: #3A6EA5; border-left: 2 solid #002200;border-right: 2 solid #A6C1DF; border-top: 2 solid #002200; border-bottom: 2 solid #A6C1DF }
+.ico{color: #FFFFFF;font-family:宋体}
+.ico_over{font-family:宋体;color: yellow; cursor:default}
+.date{font-family:Verdana;border: 1px inset #000000;color:#000000;cursor=default;background-color: infobackground}
+.title{PADDING-LEFT: 8px;background-color:#000080;cursor:move;color:#ffffff}
+button{ font-size: 9pt; font-family: 宋体; color: black; border: 1 solid #000000 }
+.link{font-family:宋体}
+.overlink{background-color:highlight;color:highlighttext;font-family:宋体;cursor:default}

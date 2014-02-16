@@ -1,0 +1,21 @@
+body{font-family:Tahoma;background-color: #396da5; ont-size:9pt;color:black}
+table,TD,DIV{font-family:Tahoma;cursor:default;font-size:9pt}
+#beta{color: #FFFFFF}
+input {padding: 1 }
+.overout{}
+.over{color: #FFFFFF; background-color: #000080 }
+A:visited,A:link {text-decoration: none;color:black} 
+A:hover{color:white}
+.up1{background-color: #D8D8D0; border-left: 1 solid #ffffff;border-right: 1 solid #000000; border-top: 1 solid #ffffff; border-bottom: 1 solid #000000 }
+.up{background-color: #D8D8D0; border-left: 2 solid #ffffff;border-right: 2 solid #000000; border-top: 2 solid #ffffff; border-bottom: 2 solid #000000 }
+.down1{ background-color: #D8D8D0; border-left: 1 solid #000000;border-right: 1 solid #ffffff; border-top: 1 solid #000000; border-bottom: 1 solid #ffffff }
+.down{ background-color: #D8D8D0; border-left: 2 solid #000000;border-right: 2 solid #ffffff; border-top: 2 solid #000000; border-bottom: 2 solid #ffffff }
+.ico{color: white}
+.ico_over{color: red}
+hr{width:95%;border: 1px inset #f0f0f0}
+.date{border: 1px #000000;cursor=default;background-color: infobackground}
+.title{padding-left:8;background-color: 000080;cursor:move;color:#ffffff}
+button{font-size:9pt;font-family:ËÎÌו;color:black}
+li{padding:2px}
+.link{padding-left:16;padding-top:2;padding-bottom:2;font-family:ËÎÌו}
+.overlink{padding-left:16;padding-top:2;padding-bottom:2;background-color:highlight;color:highlighttext;font-family:ËÎÌו}

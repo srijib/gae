@@ -1,0 +1,81 @@
+<html>
+<head>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+  <title>飞信信息订阅</title>
+</head>
+<body>
+  <table align="center" border="1">
+    <tr>
+      <td>
+        <h2><a href="http://pop.cloudrive.tk">http://pop.cloudrive.tk</a></h2>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        订阅内容:
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="aa" value="aa">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table>
+          {{form.as_table}}
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{form.as_p}}
+        <ul>
+          {{form.as_ul}}
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="middle">
+        发送内容预览:
+      </td>
+    </tr>
+    <tr id='preview_tr'>
+      <td align="left" valign="middle">
+        &nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="middle">
+        『网站不会记录飞信密码,发送时飞信会掉线..』
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="middle">
+        您的信息: <a href='#' onclick='$("#info").toggle("slow")'>显示/隐藏</a>
+      </td>
+    </tr>
+    <tr>
+      <td id='info' valign="middle">
+        IP地址:
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle">
+        飞信订阅 v0.9.8 by eggfly
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" align="center">
+        <a href="/static/reg.html">每日定时发送</a> <a href="/task">当前任务列表</a> <a href="/static/help.html">
+          帮助</a>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" align="center">
+        <a href="/static/changelog.html">更新日志</a> <a href="/message">留言板</a>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
